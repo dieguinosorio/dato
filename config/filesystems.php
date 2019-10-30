@@ -56,8 +56,22 @@ return [
         ],
         
         'empresas' => [
-            'driver' => 'empresas',
+            'driver' => 'local',
             'root' => storage_path('app/empresas'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+        
+        'images' => [
+            'driver' => 'local',
+            'root' => storage_path('app/images'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+        
+        'firmas' => [
+            'driver' => 'local',
+            'root' => storage_path('app/firmas'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],

@@ -15,7 +15,13 @@ class EmpresasController extends Controller
     }
     
     public function register(Request $request,$id){
+        $validate = $this->validate($request, [
+            'opciud' => 'required|in:A citizen of the United States,A noncitizen national of the United States,A lawful permanent resident,An alien authorized to work',
+            
+        ]);
+        
         echo $request->input('opciud');
+        echo $request->input('OpElgSi');
         die();
     }
 }
