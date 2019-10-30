@@ -267,13 +267,51 @@ class HomeController extends Controller {
     }
     
     public function listaplications($Id){
-        $Aplication = Empresas::where('id_company',$Id)->paginate(30);;
+        $Aplication = Empresas::where('id_company',$Id)->paginate(30);
         return view('empresa.list', array('aplicaciones' => $Aplication));
     }
     
     public function getImageCompany($filename) {
         $file = Storage::disk('public')->get($filename);
         return new Response($file);
+    }
+    
+    public function UpdateBusines(Request $request){
+        //Con este obtenemos el id del usr identificado.
+        $Id = \Auth::user()->id;
+
+        //Con esto obtenemos el objeto  del usr identificado
+        $User = \Auth::user();
+
+        //Validamos el formulario.
+        $validate = $this->validate($request, [
+            'name' => 'required|string|max:255',
+            'identity' => 'required|int',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $Id, //Con unique:users,nick,'.$Id validamos que el email que vamos a guardar sea el nuestro o si no valide que no exista
+        ]);
+
+        //Recoger datos del formulario
+        $name = $request->input('name');
+        $identity= $request->input('identity');
+        $email = $request->input('email');
+
+        //Obtengo la imagen
+        $image_path = $request->file('image_path');
+        if ($image_path) {
+            //Le pongo un nombre unico
+            $imagen_nom = time() . $image_path->getClientOriginalName();
+            //Guardo la imagen
+            Storage::disk('public')->put($imagen_nom, File::get($image_path)); //Con este guardamos la imagen en el disco virtual
+            $User->image = $imagen_nom;
+        }
+
+        $User->name = $name;
+        $User->Identificacion = $identity;
+        $User->email = $email;
+
+
+        $User->update();
+        return redirect()->route('home.config',['Id'=>$User->id])->with(['status' => 'Datos actualizados']);
     }
 
 }

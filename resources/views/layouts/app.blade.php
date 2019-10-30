@@ -20,6 +20,7 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/modern-business.css') }}" rel="stylesheet" type="text/css"/>
         <link href="{{ asset('css/signature-pad.css') }}" rel="stylesheet" type="text/css"/>
       

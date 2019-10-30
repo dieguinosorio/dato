@@ -7,4 +7,6 @@ and open the template in the editor.
     Created on : 17/10/2019, 06:23:41 AM
     Author     : dlaravel
 */
-
+.container-avatar img{
+    width: 93%;
+}

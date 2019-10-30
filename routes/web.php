@@ -24,6 +24,10 @@ Route::get('/image/{file}', 'HomeController@getImage')->name('image.getimg');
 Route::post('/signature/', 'HomeController@getImageSig')->name('image.signature');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/config/{Id?}', 'HomeController@configuration')->name('home.config');
+Route::get('avatar/{file}', 'HomeController@getImageCompany')->name('business.avatar');
+Route::post('busines/update/{id}', 'HomeController@UpdateBusines')->name('business.update');
+
+
 Route::get('/list/{Id?}', 'HomeController@listaplications')->name('aplication.list');
 Route::post('company/prueba/', 'HomeController@prueba')->name('prueba');
 Route::post('company/validarform/', 'HomeController@ValidarFormulario')->name('validar.formulario');
