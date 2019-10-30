@@ -15,7 +15,7 @@ var signaturePad = new SignaturePad(canvas, {
 });
 
 window.addEventListener('load', function () {
-    $('#acepted').unbind('click').click(function () {
+    $('#bntSaveSing').unbind('click').click(function () {
         if (signaturePad.isEmpty()) {
             alert("Please provide a signature first.");
         } else {
@@ -75,11 +75,15 @@ function download(dataURL, filename) {
             type: 'POST',
             dataType: 'json',
             success: function (response) {
-                console.log(response);
+                if(response.status ==200){
+                    $("#savedsig").fadeIn();
+                    $("#TxtNmImag").val(response.message);
+                }
             }
         });
     } else {
         alert("Insert your social id.");
+        document.getElementById("socialnum").focus();
     }
 }
 
@@ -104,32 +108,32 @@ clearButton.addEventListener("click", function (event) {
     signaturePad.clear();
 });
 
-undoButton.addEventListener("click", function (event) {
-    var data = signaturePad.toData();
+//undoButton.addEventListener("click", function (event) {
+//    var data = signaturePad.toData();
+//
+//    if (data) {
+//        data.pop(); // remove the last dot or line
+//        signaturePad.fromData(data);
+//    }
+//});
 
-    if (data) {
-        data.pop(); // remove the last dot or line
-        signaturePad.fromData(data);
-    }
-});
+//changeColorButton.addEventListener("click", function (event) {
+//    var r = Math.round(Math.random() * 255);
+//    var g = Math.round(Math.random() * 255);
+//    var b = Math.round(Math.random() * 255);
+//    var color = "rgb(" + r + "," + g + "," + b + ")";
+//
+//    signaturePad.penColor = color;
+//});
 
-changeColorButton.addEventListener("click", function (event) {
-    var r = Math.round(Math.random() * 255);
-    var g = Math.round(Math.random() * 255);
-    var b = Math.round(Math.random() * 255);
-    var color = "rgb(" + r + "," + g + "," + b + ")";
-
-    signaturePad.penColor = color;
-});
-
-savePNGButton.addEventListener("click", function (event) {
-    if (signaturePad.isEmpty()) {
-        alert("Please provide a signature first.");
-    } else {
-        var dataURL = signaturePad.toDataURL();
-        download(dataURL, IdSocial);
-    }
-});
+//savePNGButton.addEventListener("click", function (event) {
+//    if (signaturePad.isEmpty()) {
+//        alert("Please provide a signature first.");
+//    } else {
+//        var dataURL = signaturePad.toDataURL();
+//        download(dataURL, IdSocial);
+//    }
+//});
 
 saveJPGButton.addEventListener("click", function (event) {
     if (signaturePad.isEmpty()) {

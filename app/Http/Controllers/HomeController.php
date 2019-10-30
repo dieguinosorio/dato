@@ -41,15 +41,20 @@ class HomeController extends Controller {
         $data_uri = $a;
         $encoded_image = explode(",", $data_uri)[1];
         $decoded_image = base64_decode($encoded_image);
+        $Guardo = false;
         if ($decoded_image) {
             //Le pongo un nombre unico
-            $file_name = $id . "_" . time();
+            $file_name = $id;
             //Guardo la imagen
             Storage::disk('firmas')->put($file_name . '.png', $decoded_image); //Con este guardamos la imagen en el disco virtual
+            $Guardo = true;
         }
+        
+        $status = $Guardo == true? 200: 400;
+        $message = $status == 200 ? $file_name.'.png':'La firma no ha sido guardada';
         return response()->json([
-                    'like', "Entro" . $file_name,
-                    'message', 'El like ha sido creado'
+                    'status'=> $status,
+                    'message'=> $message
         ]);
     }
 
@@ -228,7 +233,6 @@ class HomeController extends Controller {
 //        if($job10) {
 //            $StrMensaje.="<li>Selected your option citizen<li/>";
 //        }
-
         if($mil) {
             $StrMensaje.="<li>Selected your option (Are you eligible to work on military bases in USA)<li/>";
         }
@@ -242,12 +246,17 @@ class HomeController extends Controller {
             $StrMensaje.="<li>Selected your option (Are you willing to travel if there are qualified work positions in another city or state?)<li/>";
         }
         
-        
+        if($StrMensaje !=''){
+            $status = 400;
+        }
+        else{
+            $status = 200;
+        }
 
         return response()->json([
                     'Campo' => '',
-                    'status' => 200,
-                    'message' => $StrMensaje
+                    'status' => $status,
+                    'message' => $StrMensaje =='' ? 'Congragulation':$StrMensaje
         ]);
     }
 

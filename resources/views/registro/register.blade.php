@@ -8,7 +8,7 @@
             <div class="card-body">
                 @include('includes.mensaje1')
                 @include('includes.mensaje2')
-                <form method="POST" action="{{action('EmpresasController@register',['Id'=>$empresa->name])}}" enctype="multipart/form-data">
+                <form method="POST" action="{{action('EmpresasController@register',['Id'=>$empresa->id])}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
                         <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('You are eligible to work legally in the United States') }}</label>
@@ -16,7 +16,7 @@
                         <div class="col-md-6">
                             <div class="form-check-inline">
                                 <label class="form-check-label">
-                                    <input id="OpElgSi" type="radio" class="form-check-input{{ $errors->has('OpElgSi') ? ' is-invalid' : '' }}" name="OpElgSi" value="1">Yes
+                                    <input id="OpElgSi" type="radio" class="form-check-input{{ $errors->has('OpElgSi') ? ' is-invalid' : '' }}" name="OpElgSi" value="1" checked="true">Yes
                                 </label>
                             </div>
                             <div class="form-check-inline">
@@ -37,9 +37,9 @@
 
                             <div class="col-md-6">
 
-                                <select class="form-control{{ $errors->has('opciud') ? ' is-invalid' : '' }}" id="opciud" name="opciud">
+                                <select class="form-control{{ $errors->has('opciud') ? ' is-invalid' : '' }}" id="opciud" name="opciud" required='true'>
                                     <option>(sel)</option>
-                                    <option value="A citizen of the United States" >A citizen of the United States/Un ciudadano de Estados Unidos</option>
+                                    <option selected="true"value="A citizen of the United States" >A citizen of the United States/Un ciudadano de Estados Unidos</option>
                                     <option value="A noncitizen national of the United States">A noncitizen national of the United States/nacional no Ciudadano de estados unidos</option>
                                     <option value="A lawful permanent resident">A lawful permanent resident /Un residente permanente legal</option>
                                     <option value="An alien authorized to work">An alien authorized to work / Un extranjero autorizado a trabajar en estados unidos</option>
@@ -57,7 +57,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname">
+                                <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="Diego" required>
 
                                 @if ($errors->has('firstname'))
                                 <span class="invalid-feedback" role="alert">
@@ -71,7 +71,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Middle Name') }}</label>
 
                             <div class="col-md-6">
-                                <input type="text" id="midname" class="form-control{{ $errors->has('midname') ? ' is-invalid' : '' }}" name="midname">
+                                <input type="text" id="midname" class="form-control{{ $errors->has('midname') ? ' is-invalid' : '' }}" name="midname" value="Osorio"  required>
 
                                 @if ($errors->has('midname'))
                                 <span class="invalid-feedback" role="alert">
@@ -85,7 +85,7 @@
                             <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="lastname" type="text" class="form-control{{ $errors->has('lastname') ? ' is-invalid' : '' }}" name="lastname">
+                                <input id="lastname" type="text" class="form-control{{ $errors->has('lastname') ? ' is-invalid' : '' }}" name="lastname" value="Urrea" required>
 
                                 @if ($errors->has('lastname'))
                                 <span class="invalid-feedback" role="alert">
@@ -99,7 +99,7 @@
                             <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="tel" type="tel" class="form-control{{ $errors->has('tel') ? ' is-invalid' : '' }}" name="tel">
+                                <input id="tel" type="tel" class="form-control{{ $errors->has('tel') ? ' is-invalid' : '' }}" name="tel" value="3207708252"  required>
 
                                 @if ($errors->has('tel'))
                                 <span class="invalid-feedback" role="alert">
@@ -115,7 +115,7 @@
                             <div class="col-md-6">
                                 <select class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" id="gender" name="gender" required>
                                     <option>(sel)</option>
-                                    <option value="Male" >Male</option>
+                                    <option selected="true" value="Male" >Male</option>
                                     <option value="Female">Female</option>    
                                 </select>
 
@@ -131,7 +131,7 @@
                             <label for="fhbirth" class="col-md-4 col-form-label text-md-right">{{ __('Fecha Birth') }}</label>
 
                             <div class="col-md-6">
-                                <input id="fhbirth" type="date" class="form-control{{ $errors->has('fhbirth') ? ' is-invalid' : '' }}" name="fhbirth">
+                                <input id="fhbirth" type="date" class="form-control{{ $errors->has('fhbirth') ? ' is-invalid' : '' }}" name="fhbirth" value="19/03/1992" required>
 
                                 @if ($errors->has('fhbirth'))
                                 <span class="invalid-feedback" role="alert">
@@ -145,7 +145,7 @@
                             <label for="dir" class="col-md-4 col-form-label text-md-right">{{ __('Home Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="dir" type="text" class="form-control{{ $errors->has('dir') ? ' is-invalid' : '' }}" name="dir" >
+                                <input id="dir" type="text" class="form-control{{ $errors->has('dir') ? ' is-invalid' : '' }}" name="dir" value="Calle 32 # 29a" required>
 
                                 @if ($errors->has('dir'))
                                 <span class="invalid-feedback" role="alert">
@@ -159,7 +159,7 @@
                             <label for="dir2" class="col-md-4 col-form-label text-md-right">{{ __('Home Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="dir2" type="text" class="form-control{{ $errors->has('dir2') ? ' is-invalid' : '' }}" name="dir2" >
+                                <input id="dir2" type="text" class="form-control{{ $errors->has('dir2') ? ' is-invalid' : '' }}" name="dir2" value="Calle false"  >
 
                                 @if ($errors->has('dir2'))
                                 <span class="invalid-feedback" role="alert">
@@ -173,7 +173,7 @@
                             <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
 
                             <div class="col-md-6">
-                                <input id="city" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}" name="city" >
+                                <input id="city" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}" name="city" value="Medellin" required>
 
                                 @if ($errors->has('city'))
                                 <span class="invalid-feedback" role="alert">
@@ -188,9 +188,9 @@
 
                             <div class="col-md-6">
 
-                                <select class="form-control{{ $errors->has('state') ? ' is-invalid' : '' }}" id="state" name="state">
+                                <select class="form-control{{ $errors->has('state') ? ' is-invalid' : '' }}" id="state" name="state" required>
                                     <option> (sel) </option>
-                                    <option> AL Alabama </option>
+                                    <option selected="true"> AL Alabama </option>
                                     <option> AK Alaska </option>
                                     <option> AZ Arizona </option>
                                     <option> AR Arkansas </option>
@@ -255,7 +255,7 @@
                             <label for="zipcode" class="col-md-4 col-form-label text-md-right">{{ __('Zip Code') }}</label>
 
                             <div class="col-md-6">
-                                <input id="zipcode" type="number" class="form-control{{ $errors->has('zipcode') ? ' is-invalid' : '' }}" name="zipcode">
+                                <input id="zipcode" type="number" class="form-control{{ $errors->has('zipcode') ? ' is-invalid' : '' }}" name="zipcode" value="0052545" required>
 
                                 @if ($errors->has('zipcode'))
                                 <span class="invalid-feedback" role="alert">
@@ -271,9 +271,9 @@
 
                             <div class="col-md-6">
 
-                                <select class="form-control{{ $errors->has('marital') ? ' is-invalid' : '' }}" id="marital" name="marital">
+                                <select class="form-control{{ $errors->has('marital') ? ' is-invalid' : '' }}" id="marital" name="marital" required>
                                     <option>(sel)</option>
-                                    <option>Married</option>
+                                    <option selected="true">Married</option>
                                     <option>Single</option>
                                 </select>
 
@@ -289,7 +289,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" >
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="dieguinosorio@gmail.com"  required>
 
                                 @if ($errors->has('email'))
                                 <span class="invalid-feedback" role="alert">
@@ -304,9 +304,9 @@
 
                             <div class="col-md-6">
 
-                                <select class="form-control{{ $errors->has('tpdoc') ? ' is-invalid' : '' }}" id="tpdoc" name="tpdoc">
+                                <select class="form-control{{ $errors->has('tpdoc') ? ' is-invalid' : '' }}" id="tpdoc" name="tpdoc" required>
                                     <option>(sel)</option>
-                                    <option>Social Security Number</option>
+                                    <option selected="true">Social Security Number</option>
                                     <option>IT Number</option>
                                 </select>
 
@@ -322,7 +322,7 @@
                             <label for="socialnum" class="col-md-4 col-form-label text-md-right">{{ __('Your social security number *') }}</label>
 
                             <div class="col-md-6">
-                                <input id="socialnum" type="number" class="form-control{{ $errors->has('socialnum') ? ' is-invalid' : '' }}" name="socialnum">
+                                <input id="socialnum" type="number" class="form-control{{ $errors->has('socialnum') ? ' is-invalid' : '' }}" name="socialnum" value="1152197700"  required>
 
                                 @if ($errors->has('socialnum'))
                                 <span class="invalid-feedback" role="alert">
@@ -336,7 +336,7 @@
                             <label for="numdep" class="col-md-4 col-form-label text-md-right">{{ __('Numbers of Dependents / Número de Dependientes *') }}</label>
 
                             <div class="col-md-6">
-                                <input id="numdep" type="number" class="form-control{{ $errors->has('numdep') ? ' is-invalid' : '' }}" name="numdep">
+                                <input id="numdep" type="number" class="form-control{{ $errors->has('numdep') ? ' is-invalid' : '' }}" name="numdep" value="1"  required>
 
                                 @if ($errors->has('numdep'))
                                 <span class="invalid-feedback" role="alert">
@@ -350,7 +350,7 @@
                             <label for="contactemer" class="col-md-4 col-form-label text-md-right">{{ __('Name Emergency Contact / Nombre Contácto de Emergencia *') }}</label>
 
                             <div class="col-md-6">
-                                <input id="contactemer" type="text" class="form-control{{ $errors->has('contactemer') ? ' is-invalid' : '' }}" name="contactemer" >
+                                <input id="contactemer" type="text" class="form-control{{ $errors->has('contactemer') ? ' is-invalid' : '' }}" name="contactemer" value="Luisa"  required>
 
                                 @if ($errors->has('contactemer'))
                                 <span class="invalid-feedback" role="alert">
@@ -364,7 +364,7 @@
                             <label for="surnamecon" class="col-md-4 col-form-label text-md-right">{{ __('SurName Emergency Contact / Apellidos Contácto de Emergencia *') }}</label>
 
                             <div class="col-md-6">
-                                <input id="surnamecon" type="text" class="form-control{{ $errors->has('surnamecon') ? ' is-invalid' : '' }}" name="surnamecon" >
+                                <input id="surnamecon" type="text" class="form-control{{ $errors->has('surnamecon') ? ' is-invalid' : '' }}" name="surnamecon" value="Montoya"  required>
 
                                 @if ($errors->has('surnamecon'))
                                 <span class="invalid-feedback" role="alert">
@@ -378,7 +378,7 @@
                             <label for="telcon" class="col-md-4 col-form-label text-md-right">{{ __('Phone Emergency Contact / Telefono Contácto de Emergencia *') }}</label>
 
                             <div class="col-md-6">
-                                <input id="telcon" type="tel" class="form-control{{ $errors->has('telcon') ? ' is-invalid' : '' }}" name="telcon" >
+                                <input id="telcon" type="tel" class="form-control{{ $errors->has('telcon') ? ' is-invalid' : '' }}" name="telcon" value="5689666"  required>
 
                                 @if ($errors->has('telcon'))
                                 <span class="invalid-feedback" role="alert">
@@ -393,9 +393,9 @@
 
                             <div class="col-md-6">
 
-                                <select class="form-control{{ $errors->has('area') ? ' is-invalid' : '' }}" id="area" name="area">
+                                <select class="form-control{{ $errors->has('area') ? ' is-invalid' : '' }}" id="area" name="area" required>
                                     <option>(sel)</option>
-                                    <option>Alabama</option>
+                                    <option selected="true">Alabama</option>
                                     <option>Central Florida</option>
                                     <option>Georgia</option>
                                     <option>Illinois (IL)</option>
@@ -424,7 +424,7 @@
                             <label for="namesur" class="col-md-4 col-form-label text-md-right">{{ __('Name of Supervisor / Nombre de tu Supervisor *') }}</label>
 
                             <div class="col-md-6">
-                                <input id="namesur" type="text" class="form-control{{ $errors->has('namesur') ? ' is-invalid' : '' }}" name="namesur">
+                                <input id="namesur" type="text" class="form-control{{ $errors->has('namesur') ? ' is-invalid' : '' }}" name="namesur" value="Sandra" required>
 
                                 @if ($errors->has('namesur'))
                                 <span class="invalid-feedback" role="alert">
@@ -440,27 +440,27 @@
                             <div class="col-md-6">
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
-                                        <input id='job1' type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}"  name="jobs1" >Acoustical Ceiling Mechanic
+                                        <input id='job1' type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}" value="1" name="jobs1" >Acoustical Ceiling Mechanic
                                     </label>
                                 </div>
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
-                                        <input id='job2'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}"  name="jobs1">Layout / Blueprints
+                                        <input id='job2'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}"  value="1" name="jobs2">Layout / Blueprints
                                     </label>
                                 </div>
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
-                                        <input id='job3'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}"  name="jobs1" >Drywall Metal Framing Mechanic
+                                        <input id='job3'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}"  value="1" name="jobs3" >Drywall Metal Framing Mechanic
                                     </label>
                                 </div>
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
-                                        <input id='job4'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}" name="jobs1" >Drywall Hanger
+                                        <input id='job4'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}" value="1" name="jobs4" >Drywall Hanger
                                     </label>
                                 </div>
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
-                                        <input id='job5'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}" name="jobs1" >Drywall Finisher
+                                        <input id='job5'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}" value="1" name="jobs5" >Drywall Finisher
                                     </label>
                                 </div>
 
@@ -478,31 +478,31 @@
                             <div class="col-md-6">
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
-                                        <input id='job6' type="checkbox" class="form-check-input{{ $errors->has('jobs2') ? ' is-invalid' : '' }}" value="General Laborer" name="job2">General Laborer
+                                        <input id='job6' type="checkbox" class="form-check-input{{ $errors->has('jobs6') ? ' is-invalid' : '' }}" value="1"  name="job6">General Laborer
                                     </label>
                                 </div>
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
-                                        <input id='job7' type="checkbox" class="form-check-input{{ $errors->has('jobs2') ? ' is-invalid' : '' }}" value="Plaster Tradesman" name="job2">Plaster Tradesman
+                                        <input id='job7' type="checkbox" class="form-check-input{{ $errors->has('jobs2') ? ' is-invalid' : '' }}" value="1" name="job7">Plaster Tradesman
                                     </label>
                                 </div>
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
-                                        <input id='job8' type="checkbox" class="form-check-input{{ $errors->has('jobs2') ? ' is-invalid' : '' }}" value="Concrete Forming" name="job2" >Concrete Forming
+                                        <input id='job8' type="checkbox" class="form-check-input{{ $errors->has('jobs2') ? ' is-invalid' : '' }}" value="1" name="job8" >Concrete Forming
                                     </label>
                                 </div>
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
-                                        <input id='job9' type="checkbox" class="form-check-input{{ $errors->has('jobs2') ? ' is-invalid' : '' }}" value="Concrete Finisher" name="job2" >Concrete Finisher
+                                        <input id='job9' type="checkbox" class="form-check-input{{ $errors->has('jobs2') ? ' is-invalid' : '' }}" value="1" name="job9" >Concrete Finisher
                                     </label>
                                 </div>
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
-                                        <input id='job10' type="checkbox" class="form-check-input{{ $errors->has('jobs2') ? ' is-invalid' : '' }}" value="Safety Jobsite" name="job2" >Safety Jobsite
+                                        <input id='job10' type="checkbox" class="form-check-input{{ $errors->has('jobs2') ? ' is-invalid' : '' }}" value="1" name="job10" >Safety Jobsite
                                     </label>
                                 </div>
 
-                                @if ($errors->has('job2'))
+                                @if ($errors->has('job10'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('job2') }}</strong>
                                 </span>
@@ -661,9 +661,10 @@
 
                                         <div class="signature-pad--actions">
                                             <div>
-                                                <button type="button" class="button clear" data-action="clear">Clear</button>
-                                                <button type="button" class="button" data-action="change-color">Change color</button>
-                                                <button type="button" class="button" data-action="undo">Undo</button>
+                                                <button type="button" class="button clear btn-primary" data-action="clear">Clear</button>
+                                                <button id="bntSaveSing" type="button" class="button save btn-success" data-action="save">Save</button>
+                                                <!--<button type="button" class="button" data-action="change-color">Change color</button>
+                                                <button type="button" class="button" data-action="undo">Undo</button>-->
 
                                             </div>
                                             <div style="display: none;">
@@ -672,6 +673,8 @@
                                                 <button type="button" class="button save" data-action="save-svg">Save as SVG</button>
                                             </div>
                                         </div>
+                                        <div id="savedsig" class="alert-success" style="display: none;">Signature saved..</div>
+                                        <input id="TxtNmImag" type="hidden" name="signature">
                                     </div>
                                 </div>
                             </div>
@@ -696,7 +699,7 @@
                             <label for="image_path" class="col-md-4 col-form-label text-md-right">{{ __('Copy Of Document – Front of ID / Copia de Documento de Identificacion -Parte de Adelante: *') }}</label>
 
                             <div class="col-md-6">
-                                <input id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path">
+                                <input id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path" required>
 
                                 @if ($errors->has('image_path'))
                                 <span class="invalid-feedback" role="alert">
@@ -710,7 +713,7 @@
                             <label for="image_path2" class="col-md-4 col-form-label text-md-right">{{ __('Copy Of Social Security Card: *') }}</label>
 
                             <div class="col-md-6">
-                                <input id="image_path2" type="file" class="form-control{{ $errors->has('image_path2') ? ' is-invalid' : '' }}" name="image_path2">
+                                <input id="image_path2" type="file" class="form-control{{ $errors->has('image_path2') ? ' is-invalid' : '' }}" name="image_path2" required>
 
                                 @if ($errors->has('image_path2'))
                                 <span class="invalid-feedback" role="alert">
@@ -726,7 +729,7 @@
                             <div class="col-md-6">
                                 <div class="form-check-inline">
                                     <label class="form-check-label">
-                                        <input type="radio" id= "acepted" class="form-check-input{{ $errors->has('acept') ? ' is-invalid' : '' }}" value="1" data-action="save1-png" name="acept">Yes
+                                        <input type="radio" id= "acepted" class="form-check-input{{ $errors->has('acept') ? ' is-invalid' : '' }}" value="1" data-action="save1-png" name="acept" required>Yes
                                     </label>
                                 </div>
                                 <div class="form-check-inline">
@@ -748,7 +751,7 @@
                                 <button type="submit" id="btnGuardar1" class="btn btn-primary">
                                     Registrar Datos
                                 </button>
-                                <a id="Registrar" class="btn btn-success">Reg</a>
+                                <!--<a id="Registrar" class="btn btn-success">Reg</a>-->
                             </div>
                         </div>
                     </div>

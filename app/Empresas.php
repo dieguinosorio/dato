@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Empresas extends Model
 {
     //
+    public $timestamps = false;
+
     protected $table="users_forms";
     
     //Relacion one to many 
