@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Response;
 use App\User;
+use App\Empresas;
 
 class HomeController extends Controller {
 
@@ -258,6 +259,21 @@ class HomeController extends Controller {
                     'status' => $status,
                     'message' => $StrMensaje =='' ? 'Congragulation':$StrMensaje
         ]);
+    }
+    
+    public function configuration($Id){
+        $Empresa = User::find($Id);
+        return view('empresa.configuration', array('empresa' => $Empresa));
+    }
+    
+    public function listaplications($Id){
+        $Aplication = Empresas::where('id_company',$Id)->paginate(30);;
+        return view('empresa.list', array('aplicaciones' => $Aplication));
+    }
+    
+    public function getImageCompany($filename) {
+        $file = Storage::disk('public')->get($filename);
+        return new Response($file);
     }
 
 }
