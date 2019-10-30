@@ -72,8 +72,6 @@ window.addEventListener('load', function () {
         var image_path = document.getElementById('image_path').value; 
         var image_path2 = document.getElementById('image_path2').value; 
         var acept = document.getElementsByName('acept').value; 
-        
-        
         $.ajax({
             url: 'validarform',
             type: 'POST',
@@ -125,10 +123,12 @@ window.addEventListener('load', function () {
                 if (response.status =='200'){
                     $("#mensaje-succes").fadeIn();
                     $("#lblmensajesucces").html(response.message);
+                    $("#OpElgSi").focus();
                 }
                 else{
                     $("#mensaje-error").fadeIn();
                     $("#lblmensajeerror").html(response.message);
+                    $("#OpElgSi").focus();
                 }
             }
             ,
