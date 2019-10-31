@@ -46,7 +46,7 @@
                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('First Name *') }}</label>
 
                     <div class="col-md-6">
-                        <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="Diego" required>
+                        <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname"  required>
 
                         @if ($errors->has('firstname'))
                         <span class="invalid-feedback" role="alert">
@@ -60,7 +60,7 @@
                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Middle Name *') }}</label>
 
                     <div class="col-md-6">
-                        <input type="text" id="midname" class="form-control{{ $errors->has('midname') ? ' is-invalid' : '' }}" name="midname" value="Osorio"  required>
+                        <input type="text" id="midname" class="form-control{{ $errors->has('midname') ? ' is-invalid' : '' }}" name="midname"   required>
 
                         @if ($errors->has('midname'))
                         <span class="invalid-feedback" role="alert">
@@ -74,7 +74,7 @@
                     <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Last Name *') }}</label>
 
                     <div class="col-md-6">
-                        <input id="lastname" type="text" class="form-control{{ $errors->has('lastname') ? ' is-invalid' : '' }}" name="lastname" value="Urrea" required>
+                        <input id="lastname" type="text" class="form-control{{ $errors->has('lastname') ? ' is-invalid' : '' }}" name="lastname"  required>
 
                         @if ($errors->has('lastname'))
                         <span class="invalid-feedback" role="alert">
@@ -88,7 +88,7 @@
                     <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Phone *') }}</label>
 
                     <div class="col-md-6">
-                        <input id="tel" type="tel" class="form-control{{ $errors->has('tel') ? ' is-invalid' : '' }}" name="tel" value="3207708252"  required>
+                        <input id="tel" type="tel" class="form-control{{ $errors->has('tel') ? ' is-invalid' : '' }}" name="tel"  required>
 
                         @if ($errors->has('tel'))
                         <span class="invalid-feedback" role="alert">
@@ -120,7 +120,7 @@
                     <label for="fhbirth" class="col-md-4 col-form-label text-md-right">{{ __('Fecha Birth *') }}</label>
 
                     <div class="col-md-6">
-                        <input id="fhbirth" type="date" class="form-control{{ $errors->has('fhbirth') ? ' is-invalid' : '' }}" name="fhbirth" value="19/03/1992" required>
+                        <input id="fhbirth" type="date" class="form-control{{ $errors->has('fhbirth') ? ' is-invalid' : '' }}" name="fhbirth" required>
 
                         @if ($errors->has('fhbirth'))
                         <span class="invalid-feedback" role="alert">
@@ -134,7 +134,7 @@
                     <label for="dir" class="col-md-4 col-form-label text-md-right">{{ __('Home Address *') }}</label>
 
                     <div class="col-md-6">
-                        <input id="dir" type="text" class="form-control{{ $errors->has('dir') ? ' is-invalid' : '' }}" name="dir" value="Calle 32 # 29a" required>
+                        <input id="dir" type="text" class="form-control{{ $errors->has('dir') ? ' is-invalid' : '' }}" name="dir"  required>
 
                         @if ($errors->has('dir'))
                         <span class="invalid-feedback" role="alert">
@@ -148,7 +148,7 @@
                     <label for="dir2" class="col-md-4 col-form-label text-md-right">{{ __('Home Address2 ') }}</label>
 
                     <div class="col-md-6">
-                        <input id="dir2" type="text" class="form-control{{ $errors->has('dir2') ? ' is-invalid' : '' }}" name="dir2" value="Calle false"  >
+                        <input id="dir2" type="text" class="form-control{{ $errors->has('dir2') ? ' is-invalid' : '' }}" name="dir2" >
 
                         @if ($errors->has('dir2'))
                         <span class="invalid-feedback" role="alert">
@@ -162,7 +162,7 @@
                     <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City *') }}</label>
 
                     <div class="col-md-6">
-                        <input id="city" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}" name="city" value="Medellin" required>
+                        <input id="city" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}" name="city" required>
 
                         @if ($errors->has('city'))
                         <span class="invalid-feedback" role="alert">
@@ -197,7 +197,7 @@
                     <label for="zipcode" class="col-md-4 col-form-label text-md-right">{{ __('Zip Code *') }}</label>
 
                     <div class="col-md-6">
-                        <input id="zipcode" type="number" class="form-control{{ $errors->has('zipcode') ? ' is-invalid' : '' }}" name="zipcode" value="0052545" required>
+                        <input id="zipcode" type="number" class="form-control{{ $errors->has('zipcode') ? ' is-invalid' : '' }}" name="zipcode" required>
 
                         @if ($errors->has('zipcode'))
                         <span class="invalid-feedback" role="alert">
@@ -231,7 +231,7 @@
                     <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email *') }}</label>
 
                     <div class="col-md-6">
-                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="dieguinosorio@gmail.com"  required>
+                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"  required>
 
                         @if ($errors->has('email'))
                         <span class="invalid-feedback" role="alert">
@@ -264,7 +264,7 @@
                     <label for="socialnum" class="col-md-4 col-form-label text-md-right">{{ __('Your social security number *') }}</label>
 
                     <div class="col-md-6">
-                        <input id="socialnum" type="number" class="form-control{{ $errors->has('socialnum') ? ' is-invalid' : '' }}" name="socialnum" value="1152197700"  required>
+                        <input id="socialnum" type="number" class="form-control{{ $errors->has('socialnum') ? ' is-invalid' : '' }}" name="socialnum" required>
 
                         @if ($errors->has('socialnum'))
                         <span class="invalid-feedback" role="alert">
@@ -278,7 +278,7 @@
                     <label for="numdep" class="col-md-4 col-form-label text-md-right">{{ __('Numbers of Dependents / Número de Dependientes *') }}</label>
 
                     <div class="col-md-6">
-                        <input id="numdep" type="number" class="form-control{{ $errors->has('numdep') ? ' is-invalid' : '' }}" name="numdep" value="1"  required>
+                        <input id="numdep" type="number" class="form-control{{ $errors->has('numdep') ? ' is-invalid' : '' }}" name="numdep"  required>
 
                         @if ($errors->has('numdep'))
                         <span class="invalid-feedback" role="alert">
@@ -292,7 +292,7 @@
                     <label for="contactemer" class="col-md-4 col-form-label text-md-right">{{ __('Name Emergency Contact / Nombre Contácto de Emergencia *') }}</label>
 
                     <div class="col-md-6">
-                        <input id="contactemer" type="text" class="form-control{{ $errors->has('contactemer') ? ' is-invalid' : '' }}" name="contactemer" value="Luisa"  required>
+                        <input id="contactemer" type="text" class="form-control{{ $errors->has('contactemer') ? ' is-invalid' : '' }}" name="contactemer"  required>
 
                         @if ($errors->has('contactemer'))
                         <span class="invalid-feedback" role="alert">
@@ -306,7 +306,7 @@
                     <label for="surnamecon" class="col-md-4 col-form-label text-md-right">{{ __('SurName Emergency Contact / Apellidos Contácto de Emergencia *') }}</label>
 
                     <div class="col-md-6">
-                        <input id="surnamecon" type="text" class="form-control{{ $errors->has('surnamecon') ? ' is-invalid' : '' }}" name="surnamecon" value="Montoya"  required>
+                        <input id="surnamecon" type="text" class="form-control{{ $errors->has('surnamecon') ? ' is-invalid' : '' }}" name="surnamecon" required>
 
                         @if ($errors->has('surnamecon'))
                         <span class="invalid-feedback" role="alert">
@@ -320,7 +320,7 @@
                     <label for="telcon" class="col-md-4 col-form-label text-md-right">{{ __('Phone Emergency Contact / Telefono Contácto de Emergencia *') }}</label>
 
                     <div class="col-md-6">
-                        <input id="telcon" type="tel" class="form-control{{ $errors->has('telcon') ? ' is-invalid' : '' }}" name="telcon" value="5689666"  required>
+                        <input id="telcon" type="tel" class="form-control{{ $errors->has('telcon') ? ' is-invalid' : '' }}" name="telcon"  required>
 
                         @if ($errors->has('telcon'))
                         <span class="invalid-feedback" role="alert">
@@ -353,7 +353,7 @@
                     <label for="namesur" class="col-md-4 col-form-label text-md-right">{{ __('Name of Supervisor / Nombre de tu Supervisor *') }}</label>
 
                     <div class="col-md-6">
-                        <input id="namesur" type="text" class="form-control{{ $errors->has('namesur') ? ' is-invalid' : '' }}" name="namesur" value="Sandra" required>
+                        <input id="namesur" type="text" class="form-control{{ $errors->has('namesur') ? ' is-invalid' : '' }}" name="namesur"  required>
 
                         @if ($errors->has('namesur'))
                         <span class="invalid-feedback" role="alert">
@@ -678,7 +678,7 @@
                 <div class="form-group row mb-0">
                     <div class="col-md-6 offset-md-4">
                         <button type="submit" id="btnGuardar1" class="btn btn-primary">
-                            Registrar Datos
+                            Register
                         </button>
                         <!--<a id="Registrar" class="btn btn-success">Reg</a>-->
                     </div>
