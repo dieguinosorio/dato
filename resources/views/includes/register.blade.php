@@ -589,9 +589,10 @@
                                 <div class="description">Sign above</div>
 
                                 <div class="signature-pad--actions">
-                                    <div>
-                                        <button type="button" class="button clear btn-primary" data-action="clear">Clear</button>
-                                        <button id="bntSaveSing" type="button" class="button save btn-success" data-action="save">Save</button>
+                                    <div style="width: 100%">
+                                        <button id="bntSaveSing" style="float: left;" type="button" class="button save btn-success" data-action="save">Save</button>
+                                        <button type="button"  style="float: right;"class="button clear btn-primary" data-action="clear">Clear</button>
+                                        
                                         <!--<button type="button" class="button" data-action="change-color">Change color</button>
                                         <button type="button" class="button" data-action="undo">Undo</button>-->
 
