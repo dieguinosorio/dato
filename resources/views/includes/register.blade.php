@@ -3,7 +3,7 @@
         <form method="POST" action="{{action('EmpresasController@register',['Id'=>$empresa->id])}}" enctype="multipart/form-data">
             @csrf
             <div class="form-group row">
-                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('You are eligible to work legally in the United States') }}</label>
+                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('You are eligible to work legally in the United States *') }}</label>
 
                 <div class="col-md-6">
                     <div class="form-check-inline">
@@ -25,7 +25,7 @@
             </div>
             <div id="pnlAcepted">
                 <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Selected Option') }}</label>
+                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Selected Option *') }}</label>
 
                     <div class="col-md-6">
                         <select class="form-control{{ $errors->has('opciud') ? ' is-invalid' : '' }}" id="opciud" name="opciud">
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
+                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('First Name *') }}</label>
 
                     <div class="col-md-6">
                         <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="Diego" required>
@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Middle Name') }}</label>
+                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Middle Name *') }}</label>
 
                     <div class="col-md-6">
                         <input type="text" id="midname" class="form-control{{ $errors->has('midname') ? ' is-invalid' : '' }}" name="midname" value="Osorio"  required>
@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
+                    <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Last Name *') }}</label>
 
                     <div class="col-md-6">
                         <input id="lastname" type="text" class="form-control{{ $errors->has('lastname') ? ' is-invalid' : '' }}" name="lastname" value="Urrea" required>
@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
+                    <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Phone *') }}</label>
 
                     <div class="col-md-6">
                         <input id="tel" type="tel" class="form-control{{ $errors->has('tel') ? ' is-invalid' : '' }}" name="tel" value="3207708252"  required>
@@ -99,7 +99,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
+                    <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender *') }}</label>
 
                     <div class="col-md-6">
                         <select class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" id="gender" name="gender" required>
@@ -117,7 +117,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="fhbirth" class="col-md-4 col-form-label text-md-right">{{ __('Fecha Birth') }}</label>
+                    <label for="fhbirth" class="col-md-4 col-form-label text-md-right">{{ __('Fecha Birth *') }}</label>
 
                     <div class="col-md-6">
                         <input id="fhbirth" type="date" class="form-control{{ $errors->has('fhbirth') ? ' is-invalid' : '' }}" name="fhbirth" value="19/03/1992" required>
@@ -131,7 +131,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="dir" class="col-md-4 col-form-label text-md-right">{{ __('Home Address') }}</label>
+                    <label for="dir" class="col-md-4 col-form-label text-md-right">{{ __('Home Address *') }}</label>
 
                     <div class="col-md-6">
                         <input id="dir" type="text" class="form-control{{ $errors->has('dir') ? ' is-invalid' : '' }}" name="dir" value="Calle 32 # 29a" required>
@@ -145,7 +145,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="dir2" class="col-md-4 col-form-label text-md-right">{{ __('Home Address') }}</label>
+                    <label for="dir2" class="col-md-4 col-form-label text-md-right">{{ __('Home Address2 ') }}</label>
 
                     <div class="col-md-6">
                         <input id="dir2" type="text" class="form-control{{ $errors->has('dir2') ? ' is-invalid' : '' }}" name="dir2" value="Calle false"  >
@@ -159,7 +159,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
+                    <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City *') }}</label>
 
                     <div class="col-md-6">
                         <input id="city" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}" name="city" value="Medellin" required>
@@ -173,7 +173,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('State') }}</label>
+                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('State *') }}</label>
 
                     <div class="col-md-6">
 
@@ -194,7 +194,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="zipcode" class="col-md-4 col-form-label text-md-right">{{ __('Zip Code') }}</label>
+                    <label for="zipcode" class="col-md-4 col-form-label text-md-right">{{ __('Zip Code *') }}</label>
 
                     <div class="col-md-6">
                         <input id="zipcode" type="number" class="form-control{{ $errors->has('zipcode') ? ' is-invalid' : '' }}" name="zipcode" value="0052545" required>
@@ -209,7 +209,7 @@
 
 
                 <div class="form-group row">
-                    <label for="marital" class="col-md-4 col-form-label text-md-right">{{ __('Marital Status') }}</label>
+                    <label for="marital" class="col-md-4 col-form-label text-md-right">{{ __('Marital Status *') }}</label>
 
                     <div class="col-md-6">
 
@@ -228,7 +228,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email') }}</label>
+                    <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email *') }}</label>
 
                     <div class="col-md-6">
                         <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="dieguinosorio@gmail.com"  required>
@@ -242,7 +242,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="tpdoc" class="col-md-4 col-form-label text-md-right">{{ __('Document Type') }}</label>
+                    <label for="tpdoc" class="col-md-4 col-form-label text-md-right">{{ __('Document Type *') }}</label>
 
                     <div class="col-md-6">
 
@@ -364,32 +364,32 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="namesur" class="col-md-4 col-form-label text-md-right">{{ __('Job Skills – I currently have experience in the following job skills*') }}</label>
+                    <label for="namesur" class="col-md-4 col-form-label text-md-right">{{ __('Job Skills – I currently have experience in the following job skills *') }}</label>
 
                     <div class="col-md-6">
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input id='job1' type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}" value="1" name="jobs1" >Acoustical Ceiling Mechanic
+                                <input id='job1' type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}" value="1" name="job1" >Acoustical Ceiling Mechanic
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input id='job2'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}"  value="1" name="jobs2">Layout / Blueprints
+                                <input id='job2'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}"  value="1" name="job2">Layout / Blueprints
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input id='job3'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}"  value="1" name="jobs3" >Drywall Metal Framing Mechanic
+                                <input id='job3'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}"  value="1" name="job3" >Drywall Metal Framing Mechanic
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input id='job4'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}" value="1" name="jobs4" >Drywall Hanger
+                                <input id='job4'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}" value="1" name="job4" >Drywall Hanger
                             </label>
                         </div>
                         <div class="form-check-inline">
                             <label class="form-check-label">
-                                <input id='job5'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}" value="1" name="jobs5" >Drywall Finisher
+                                <input id='job5'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}" value="1" name="job5" >Drywall Finisher
                             </label>
                         </div>
 
@@ -402,7 +402,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="namesur" class="col-md-4 col-form-label text-md-right">{{ __('(Please check all those which apply)') }}</label>
+                    <label for="namesur" class="col-md-4 col-form-label text-md-right">{{ __('(Please check all those which apply) *') }}</label>
 
                     <div class="col-md-6">
                         <div class="form-check-inline">

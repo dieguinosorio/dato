@@ -21,6 +21,7 @@ Route::get('/company/{id}', 'EmpresasController@index')->name('company.index');
 Route::post('/company/register{id}', 'EmpresasController@register')->name('company.register');
 Route::get('/company/edit/{id}', 'AplicationController@loadAplication')->name('company.edit');
 Route::post('/update/{id}', 'EmpresasController@UpdateApp')->name('company.update');
+Route::get('/company/delete/{id}', 'EmpresasController@DeleteApp')->name('company.delete');
 
 Route::get('/image/{file}', 'HomeController@getImage')->name('image.getimg');
 Route::post('/signature/', 'HomeController@getImageSig')->name('image.signature');
@@ -50,7 +51,7 @@ Route::get('formi9/{Id?}', 'ImprimirFormatoi9@general')->name('format.i9');
 
 
 Route::get('/list/{Id?}', 'HomeController@listaplications')->name('aplication.list');
-Route::post('company/prueba/', 'HomeController@prueba')->name('prueba');
+Route::get('/company/prueba/', 'HomeController@prueba')->name('prueba');
 Route::post('company/validarform/', 'HomeController@ValidarFormulario')->name('validar.formulario');
 
 Route::group(array('domain' => '{subdomain}.dato.com'), function () {

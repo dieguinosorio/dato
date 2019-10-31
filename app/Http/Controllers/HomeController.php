@@ -74,7 +74,7 @@ class HomeController extends Controller {
         ]);
     }
 
-    public function prueba(Request $request) {
+    public function prueba() {
 //        $a = $request->input('img_data');
 //        $data_uri = $a;
 //        $encoded_image = explode(",", $data_uri)[1];
@@ -86,22 +86,25 @@ class HomeController extends Controller {
 //            //Guardo la imagen
 //            Storage::disk('firmas')->put('prueba.png', $decoded_image); //Con este guardamos la imagen en el disco virtual
 //        }
-        $Social = $request->input('social');
-        if ($Social != '') {
-            $Dato = "Social";
-            $Mensaje = "El campo se diligencio correctamente";
-            $Status = "200";
-        } else {
-            $Dato = "Social";
-            $Mensaje = "El campo social no se diligencio correctamente";
-            $Status = "400";
-        }
-
-        return response()->json([
-                    'Campo' => $Dato,
-                    'status' => $Status,
-                    'message' => $Mensaje
-        ]);
+//        $Social = $request->input('social');
+//        if ($Social != '') {
+//            $Dato = "Social";
+//            $Mensaje = "El campo se diligencio correctamente";
+//            $Status = "200";
+//        } else {
+//            $Dato = "Social";
+//            $Mensaje = "El campo social no se diligencio correctamente";
+//            $Status = "400";
+//        }
+//
+//        return response()->json([
+//                    'Campo' => $Dato,
+//                    'status' => $Status,
+//                    'message' => $Mensaje
+//        ]);
+        $ValidApp = Empresas::where("social_security", 1152197700)->first();
+        var_dump($ValidApp);
+        die();
     }
 
     public function ValidarFormulario(Request $request) {
@@ -153,7 +156,7 @@ class HomeController extends Controller {
 //                image_path2 :image_path2,
         $acept = $request->input('acept');
         $StrMensaje ='';
-        if($OpCity=='(sel)'){
+        if($OpCity==1){
             $StrMensaje.="<li>Selected your option citizen<li/>";
         }
         if($Firtsname =='') {
@@ -183,7 +186,7 @@ class HomeController extends Controller {
         if($city=='') {
            $StrMensaje.="<li>Insert your city<li/>"; 
         }
-        if($state=='(sel)') {
+        if($state==1) {
             $StrMensaje.="<li>Insert your state<li/>";
         }
         if($zipcode=='') {
@@ -213,7 +216,7 @@ class HomeController extends Controller {
         if($telcon=='') {
             $StrMensaje.="<li>Insert telephone contact emergency<li/>";
         }
-        if($area=='') {
+        if($area==1) {
             $StrMensaje.="<li>Insert your area<li/>";
         }
         if($namesur=='') {

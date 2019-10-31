@@ -8,6 +8,8 @@ class Empresas extends Model
 {
     //
     public $timestamps = false;
+    
+    protected $primaryKey ="Id";
 
     protected $table="users_forms";
     

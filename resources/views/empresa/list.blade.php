@@ -30,6 +30,7 @@
                         <th scope="col">REG. FORM</th>
                         <th scope="col">FORM W9</th>
                         <th scope="col">FORM I9</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,6 +54,7 @@
                         <td><a class="btn btn-sm btn-success" href="{{action("ImprimirFormularioReg@formRegister",$user->Id)}}">REG. FORM</a></td>
                         <td><a class="btn btn-sm btn-success" href="{{action("ImprimirFormatow9@general",$user->Id)}}">W9</a></td>
                         <td><a class="btn btn-sm btn-success" href="{{action("ImprimirFormatoi9@general",$user->Id)}}">I9</a></td>
+                        <td><a class="btn btn-sm btn-danger" href="{{action("EmpresasController@DeleteApp",$user->Id)}}">DELETE</a></td>
                     </tr>
                     @endforeach
                 </tbody>
