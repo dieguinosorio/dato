@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Empresas;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -26,4 +26,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    
+    //Relacion one to many 
+    public function usuario(){
+        return $this->hasMany('App\Empresas','id_company','id');
+    }
 }

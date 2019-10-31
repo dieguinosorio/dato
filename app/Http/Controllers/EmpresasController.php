@@ -8,13 +8,19 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Http\Response;
 use App\Empresas;
 use App\User;
+use App\OpResident;
+use App\States;
+use App\Areas;
 
 class EmpresasController extends Controller {
 
     //
     public function index($id) {
         $empresa = User::where('id', $id)->first();
-        return view('registro.register', ["empresa" => $empresa]);
+        $OpResident = OpResident::all();
+        $States = States::all();
+        $Areas = Areas::all();
+        return view('registro.register', array("empresa" => $empresa,'OpResident'=>$OpResident,'states'=>$States,'areas'=>$Areas));
     }
 
     public function register(Request $request, $id) {

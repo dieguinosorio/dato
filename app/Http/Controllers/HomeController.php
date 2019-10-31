@@ -27,11 +27,26 @@ class HomeController extends Controller {
      */
     public function index() {
 
-        $empresas = User::all();
+        if(isset(\Auth::user()->id)){
+           $empresas = User::find(\Auth::user()->id);
+        }
+        else{
+           $empresas = User::all(); 
+        }
         return view('home', array('empresas' => $empresas));
     }
 
     public function getImage($filename) {
+        $file = Storage::disk('firmas')->get($filename);
+        return new Response($file);
+    }
+    
+    public function getImageSocial($filename) {
+        $file = Storage::disk('images')->get($filename);
+        return new Response($file);
+    }
+    
+    public function getImagePublic($filename) {
         $file = Storage::disk('public')->get($filename);
         return new Response($file);
     }
@@ -313,5 +328,11 @@ class HomeController extends Controller {
         $User->update();
         return redirect()->route('home.config',['Id'=>$User->id])->with(['status' => 'Datos actualizados']);
     }
+    
+    public function getImageSignature($filename) {
+        $file = Storage::disk('firmas')->get($filename);
+        return new Response($file);
+    }
+
 
 }

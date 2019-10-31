@@ -8,7 +8,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>App Name - @yield('title')</title>
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -58,7 +58,16 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                             @else
-                             <a class="nav-link" href="{{ action('HomeController@listaplications',Auth::user()->id) }}">{{ __('List Aplications') }}</a>
+                            @if(Auth::user()->id && Auth::user()->role == 'admin')
+                               <a class="nav-link" href="#">Admin Business Plans</a>
+                            @else
+                               <a class="nav-link" href="#">Business Plans</a>
+                            @endif
+                            <a class="nav-link" href="{{ route('company.index',Auth::user()->id) }}">New Application</a>
+                            <a class="nav-link" href="{{ action('HomeController@listaplications',Auth::user()->id) }}">{{ __('List Aplications') }}</a>
+                            <li>
+                                @include('includes.avatar')
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

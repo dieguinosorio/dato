@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'List Aplications')
 @section('content')
 <div class="container-fluid">
     <div class="card">
@@ -9,7 +9,7 @@
             @if(session('status'))
             <div class="alert alert-success">{{session('status')}}</div>
             @endif
-            <table class="table">
+            <table class="table table-hover table-fixed">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">ID</th>
@@ -41,19 +41,18 @@
                         <td>{{$user->last_name}}</td>
                         <td>{{$user->tel}}</td>
                         <td>{{$user->email}}</td>
-                        <td>{{$user->dir}}</td>
+                        <td>{{$user->dir_home}}</td>
                         <td>{{$user->city}}</td>
                         <td>{{$user->zip_code}}</td>
                         <td>{{$user->fh_register}}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><a class="btn btn-sm btn-info" href="{{action("AplicationController@loadAplication",$user->Id)}}">Load</a></td>
+                        <td><a class="img-signature" href="#"><img src='{{action("HomeController@getImage",$user->firma)}}'></a></td>
+                        <td><a class="img-signature" href="#"><img src='{{action("HomeController@getImageSocial",$user->doc_id1)}}'></td>
+                        <td><a class="img-signature" href="#"><img src='{{action("HomeController@getImageSocial",$user->doc_id2)}}'></td>
+                        <td><a class="btn btn-sm btn-success" href="{{action("ImprimirDocumentos@generalW4",$user->Id)}}">W4</a></td>
+                        <td><a class="btn btn-sm btn-success" href="{{action("ImprimirFormularioReg@formRegister",$user->Id)}}">REG. FORM</a></td>
+                        <td><a class="btn btn-sm btn-success" href="{{action("ImprimirFormatow9@general",$user->Id)}}">W9</a></td>
+                        <td><a class="btn btn-sm btn-success" href="{{action("ImprimirFormatoi9@general",$user->Id)}}">I9</a></td>
                     </tr>
                     @endforeach
                 </tbody>
