@@ -20,6 +20,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/company/{id}', 'EmpresasController@index')->name('company.index');
 Route::post('/company/register{id}', 'EmpresasController@register')->name('company.register');
 Route::get('/company/edit/{id}', 'AplicationController@loadAplication')->name('company.edit');
+Route::post('/update/{id}', 'EmpresasController@UpdateApp')->name('company.update');
 
 Route::get('/image/{file}', 'HomeController@getImage')->name('image.getimg');
 Route::post('/signature/', 'HomeController@getImageSig')->name('image.signature');

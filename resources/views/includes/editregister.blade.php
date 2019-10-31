@@ -1,4 +1,5 @@
-<form method="POST" action="{{action('EmpresasController@register',['Id'=>$empresa->id])}}" enctype="multipart/form-data">
+@include("includes.mensaje1")
+<form method="POST" action="{{action('EmpresasController@UpdateApp',['Id'=>$app->Id])}}" enctype="multipart/form-data">
     @csrf
     <div id="pnlAcepted">
         <div class="form-group row">
@@ -102,7 +103,7 @@
             <label for="fhbirth" class="col-md-4 col-form-label text-md-right">{{ __('Fecha Birth') }}</label>
 
             <div class="col-md-6">
-                <input id="fhbirth" type="date" class="form-control{{ $errors->has('fhbirth') ? ' is-invalid' : '' }}" name="fhbirth" value="{{isset($app) ? $app->fh_birt: ''}}" required>
+                <input id="fhbirth" type="date" class="form-control{{ $errors->has('fhbirth') ? ' is-invalid' : '' }}" name="fhbirth" value="{{date_format(date_create($app->fh_birt),'Y-m-d')}}" required>
 
                 @if ($errors->has('fhbirth'))
                 <span class="invalid-feedback" role="alert">
@@ -356,27 +357,27 @@
             <div class="col-md-6">
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input id='job1' type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}" value="{{isset($app) ? $app->acustical: '1'}}" name="jobs1" >Acoustical Ceiling Mechanic
+                        <input id='job1' type="checkbox" @if($app->acustical ==1) checked="true" @endif class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}" value="1" name="jobs1" >Acoustical Ceiling Mechanic
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input id='job2'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}"  value="{{isset($app) ? $app->layout: '1'}}" name="jobs2">Layout / Blueprints
+                        <input id='job2'  type="checkbox" @if($app->layout ==1) checked="true" @endif class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}"  value="1" name="jobs2">Layout / Blueprints
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input id='job3'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}"  value="{{isset($app) ? $app->drywall_metal: '1'}}" name="jobs3" >Drywall Metal Framing Mechanic
+                        <input id='job3'  type="checkbox" @if($app->drywall_metal ==1) checked="true" @endif class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}"  value="1" name="jobs3" >Drywall Metal Framing Mechanic
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input id='job4'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}" value="{{isset($app) ? $app->drywall_hanger: '1'}}" name="jobs4" >Drywall Hanger
+                        <input id='job4'  type="checkbox" @if($app->drywall_hanger ==1) checked="true" @endif class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}" value="1" name="jobs4" >Drywall Hanger
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input id='job5'  type="checkbox" class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}" value="{{isset($app) ? $app->drywall_finisher: '1'}}" name="jobs5" >Drywall Finisher
+                        <input id='job5'  type="checkbox" @if($app->drywall_finisher ==1) checked="true" @endif class="form-check-input{{ $errors->has('jobs1') ? ' is-invalid' : '' }}" value="1" name="jobs5" >Drywall Finisher
                     </label>
                 </div>
 
@@ -394,27 +395,27 @@
             <div class="col-md-6">
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input id='job6' type="checkbox" class="form-check-input{{ $errors->has('jobs6') ? ' is-invalid' : '' }}" value="{{isset($app) ? $app->general_lab: '1'}}"  name="job6">General Laborer
+                        <input id='job6' type="checkbox" @if($app->general_lab ==1) checked="true" @endif  class="form-check-input{{ $errors->has('jobs6') ? ' is-invalid' : '' }}" value="1"  name="job6">General Laborer
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input id='job7' type="checkbox" class="form-check-input{{ $errors->has('jobs2') ? ' is-invalid' : '' }}" value="{{isset($app) ? $app->plastert: '1'}}" name="job7">Plaster Tradesman
+                        <input id='job7' type="checkbox" @if($app->plastert ==1) checked="true" @endif  class="form-check-input{{ $errors->has('jobs2') ? ' is-invalid' : '' }}" value="1" name="job7">Plaster Tradesman
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input id='job8' type="checkbox" class="form-check-input{{ $errors->has('jobs2') ? ' is-invalid' : '' }}" value="{{isset($app) ? $app->concrete_form: '1'}}" name="job8" >Concrete Forming
+                        <input id='job8' type="checkbox" @if($app->concrete_form ==1) checked="true" @endif  class="form-check-input{{ $errors->has('jobs2') ? ' is-invalid' : '' }}" value="1" name="job8" >Concrete Forming
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input id='job9' type="checkbox" class="form-check-input{{ $errors->has('jobs2') ? ' is-invalid' : '' }}" value="{{isset($app) ? $app->concrete_finish: '1'}}" name="job9" >Concrete Finisher
+                        <input id='job9' type="checkbox" @if($app->concrete_finish ==1) checked="true" @endif class="form-check-input{{ $errors->has('jobs2') ? ' is-invalid' : '' }}" value="1" name="job9" >Concrete Finisher
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input id='job10' type="checkbox" class="form-check-input{{ $errors->has('jobs2') ? ' is-invalid' : '' }}" value="{{isset($app) ? $app->safety_job: '1'}}" name="job10" >Safety Jobsite
+                        <input id='job10' type="checkbox" @if($app->safety_job ==1) checked="true" @endif class="form-check-input{{ $errors->has('jobs2') ? ' is-invalid' : '' }}" value="1" name="job10" >Safety Jobsite
                     </label>
                 </div>
 
@@ -432,12 +433,12 @@
             <div class="col-md-6">
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input{{ $errors->has('mil') ? ' is-invalid' : '' }}" value="{{isset($app) ? $app->work_in_militarbase: '0'}}" name="mil">Yes
+                        <input type="radio" @if($app->work_in_militarbase ==1) checked="true" @endif class="form-check-input{{ $errors->has('mil') ? ' is-invalid' : '' }}" value="1" name="mil">Yes
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input{{ $errors->has('mil') ? ' is-invalid' : '' }}" value="{{isset($app) ? $app->work_in_militarbase: '0'}}" name="mil">No
+                        <input type="radio" @if($app->work_in_militarbase ==0) checked="true" @endif class="form-check-input{{ $errors->has('mil') ? ' is-invalid' : '' }}" value="0" name="mil">No
                     </label>
                 </div>
                 @if ($errors->has('mil'))
@@ -454,12 +455,12 @@
             <div class="col-md-6">
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input{{ $errors->has('dem') ? ' is-invalid' : '' }}" value="{{isset($app) ? $app->involucred_demand: '0'}}" name="dem">Yes
+                        <input type="radio" @if($app->involucred_demand ==1) checked="true" @endif class="form-check-input{{ $errors->has('dem') ? ' is-invalid' : '' }}" value="1" name="dem">Yes
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input{{ $errors->has('dem') ? ' is-invalid' : '' }}" value="{{isset($app) ? $app->involucred_demand: '0'}}" name="dem">No
+                        <input type="radio" @if($app->involucred_demand ==0) checked="true" @endif class="form-check-input{{ $errors->has('dem') ? ' is-invalid' : '' }}" value="0" name="dem">No
                     </label>
                 </div>
                 @if ($errors->has('dem'))
@@ -476,12 +477,12 @@
             <div class="col-md-6">
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input{{ $errors->has('demc') ? ' is-invalid' : '' }}" value="{{isset($app) ? $app->workers_compensation: '0'}}" name="demc">Yes
+                        <input type="radio" @if($app->workers_compensation ==1) checked="true" @endif class="form-check-input{{ $errors->has('demc') ? ' is-invalid' : '' }}" value="1" name="demc">Yes
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input{{ $errors->has('demc') ? ' is-invalid' : '' }}" value="{{isset($app) ? $app->workers_compensation: '0'}}" name="demc">No
+                        <input type="radio" @if($app->workers_compensation ==0) checked="true" @endif class="form-check-input{{ $errors->has('demc') ? ' is-invalid' : '' }}" value="0" name="demc">No
                     </label>
                 </div>
                 @if ($errors->has('demc'))
@@ -498,12 +499,12 @@
             <div class="col-md-6">
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input{{ $errors->has('dispmov') ? ' is-invalid' : '' }}" value="{{isset($app) ? $app->qualified_work_positions: '0'}}" name="dispmov">Yes
+                        <input type="radio" @if($app->qualified_work_positions ==1) checked="true" @endif class="form-check-input{{ $errors->has('dispmov') ? ' is-invalid' : '' }}" value="1" name="dispmov">Yes
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input{{ $errors->has('dispmov') ? ' is-invalid' : '' }}" value="{{isset($app) ? $app->qualified_work_positions: '0'}}" name="dispmov">No
+                        <input type="radio" @if($app->qualified_work_positions ==0) checked="true" @endif class="form-check-input{{ $errors->has('dispmov') ? ' is-invalid' : '' }}" value="0" name="dispmov">No
                     </label>
                 </div>
                 @if ($errors->has('dispmov'))
@@ -527,7 +528,7 @@
 
             <div class="col-md-6">
                 <img src="{{action("HomeController@getImageSocial",$app->doc_id1)}}"/>
-                <input id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path" required>
+                <input id="image_path" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path">
 
                 @if ($errors->has('image_path'))
                 <span class="invalid-feedback" role="alert">
@@ -543,7 +544,7 @@
 
             <div class="col-md-6">
                 <img src="{{action("HomeController@getImageSocial",$app->doc_id2)}}"/>
-                <input id="image_path2" type="file" class="form-control{{ $errors->has('image_path2') ? ' is-invalid' : '' }}" name="image_path2" required>
+                <input id="image_path2" type="file" class="form-control{{ $errors->has('image_path2') ? ' is-invalid' : '' }}" name="image_path2" >
 
                 @if ($errors->has('image_path2'))
                 <span class="invalid-feedback" role="alert">
@@ -555,7 +556,7 @@
 
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
-                <button type="submit" id="btnGuardar1" class="btn btn-primary">
+                <button type="submit" id="btnGuardarUp" class="btn btn-primary">
                     Update
                 </button>
                 <!--<a id="Registrar" class="btn btn-success">Reg</a>-->
