@@ -1,7 +1,5 @@
 *
 !public/
-!firmas/
-!images/
 !empresas/
 !usuarios/
 !.gitignore
