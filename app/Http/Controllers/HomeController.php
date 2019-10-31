@@ -17,7 +17,7 @@ class HomeController extends Controller {
      * @return void
      */
     public function __construct() {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -304,8 +304,8 @@ class HomeController extends Controller {
         //Validamos el formulario.
         $validate = $this->validate($request, [
             'name' => 'required|string|max:255',
-            'identity' => 'required|int',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $Id, //Con unique:users,nick,'.$Id validamos que el email que vamos a guardar sea el nuestro o si no valide que no exista
+//            'identity' => 'required|int',
+//            'email' => 'required|string|email|max:255|unique:users,email,' . $Id, //Con unique:users,nick,'.$Id validamos que el email que vamos a guardar sea el nuestro o si no valide que no exista
         ]);
 
         //Recoger datos del formulario
