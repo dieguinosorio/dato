@@ -73,6 +73,7 @@ window.addEventListener('load', function () {
         var image_path = document.getElementById('image_path').value;
         var image_path2 = document.getElementById('image_path2').value;
         var acept = document.getElementsByName('acept').value;
+        var firm = document.getElementById("TxtNmImag").value;
         $.ajax({
             url: 'validarform',
             type: 'POST',
@@ -118,6 +119,7 @@ window.addEventListener('load', function () {
 //                image_path :image_path,
 //                image_path2 :image_path2,
                 acept: acept,
+                firm:firm,
             },
             success: function (response) {
                 console.log(response.message);

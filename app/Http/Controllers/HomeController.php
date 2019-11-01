@@ -155,6 +155,7 @@ class HomeController extends Controller {
 //                image_path :image_path,
 //                image_path2 :image_path2,
         $acept = $request->input('acept');
+        $firma = $request->input('firm');
         $StrMensaje ='';
         if($OpCity==1){
             $StrMensaje.="<li>Selected your option citizen<li/>";
@@ -263,6 +264,9 @@ class HomeController extends Controller {
         }
         if($acept) {
             $StrMensaje.="<li>Selected your option (Are you willing to travel if there are qualified work positions in another city or state?)<li/>";
+        }
+        if($firma ==''){
+           $StrMensaje.="<li>Insert you signature<li/>";
         }
         
         if($StrMensaje !=''){
