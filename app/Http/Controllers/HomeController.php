@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Http\Response;
 use App\User;
 use App\Empresas;
+use App\Http\Controllers\PlansController;
 
 class HomeController extends Controller {
 
@@ -25,13 +26,19 @@ class HomeController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index(Request $request) {
 
-        if(isset(\Auth::user()->id)){
+        if ($request->input('criteria') != '') {
+            $empresas = User::where('name', 'like', "%" . $request->input('criteria') . "%")
+                    ->orwhere('Identificacion', 'like', "%" . $request->input('criteria') . "%")
+                    ->orwhere('email', 'like', "%" . $request->input('criteria') . "%")
+                    ->paginate(2);
+        }
+        else if(isset(\Auth::user()->id)){
            $empresas = User::find(\Auth::user()->id);
         }
         else{
-           $empresas = User::all(); 
+           $empresas = User::orderby('id'); 
         }
         return view('home', array('empresas' => $empresas));
     }

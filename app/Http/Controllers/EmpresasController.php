@@ -90,9 +90,8 @@ class EmpresasController extends Controller {
             $UserNew->fh_register = date("Y-m-d H:i:s");
             $UserNew->save();
             return redirect("/")->with("status", "Congratulations " . $UserNew->firs_name . " have applied form company ((" . $Compania->name . ")), you data ID Number " . $UserNew->Id);
-        }
-        else{
-             return redirect("/")->with("status", "We already registered you with the #ID: " . $ValidApp->Id . " and name ".$ValidApp->firs_name);
+        } else {
+            return redirect("/")->with("status", "We already registered you with the #ID: " . $ValidApp->Id . " and name " . $ValidApp->firs_name);
         }
     }
 
@@ -162,15 +161,27 @@ class EmpresasController extends Controller {
             }
         }
     }
-    
-    public function DeleteApp($Id){
+
+    public function DeleteApp($Id) {
         $App = Empresas::find($Id);
-        if($App->delete()){
-            return redirect('/list/' . $App->id_company)->with('status', 'App Deleted ID Number ' . $App->Id." name ".$App->firs_name);
+        if ($App->delete()) {
+            return redirect('/list/' . $App->id_company)->with('status', 'App Deleted ID Number ' . $App->Id . " name " . $App->firs_name);
+        } else {
+            return redirect('/list/' . $App->id_company)->with('status', 'Error deleting App ID Number ' . $App->Id . " name " . $App->firs_name);
+        }
+    }
+
+    public function BusquedaEmpresa(Request $request) {
+        if ($request->input('criteria') != '') {
+            $empresas = User::where('name', 'like', "%" . $request->input('criteria') . "%")
+                    ->orwhere('Identificacion', 'like', "%" . $request->input('criteria') . "%")
+                    ->orwhere('email', 'like', "%" . $request->input('criteria') . "%")
+                    ->paginate(1);
         }
         else{
-            return redirect('/list/' . $App->id_company)->with('status', 'Error deleting App ID Number ' . $App->Id." name ".$App->firs_name);
+            $empresas = User::orderBy('id')->paginate(1); 
         }
+        return  view('home', array('empresas' => $empresas));
     }
 
 }

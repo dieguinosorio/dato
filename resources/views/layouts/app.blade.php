@@ -12,7 +12,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
-         <script src="{{ asset('js/funciones.js') }}"></script>
+        <script src="{{ asset('js/funciones.js') }}"></script>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -23,12 +23,12 @@
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/modern-business.css') }}" rel="stylesheet" type="text/css"/>
         <link href="{{ asset('css/signature-pad.css') }}" rel="stylesheet" type="text/css"/>
-      
-         <!--Styles Signature-->
-         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+        <!--Styles Signature-->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script src="{{ asset('js/sig/signature_pad.umd.js') }}" defer></script>
         <script src="{{ asset('js/sig/app.js') }}" defer></script>
-       
+
     </head>
     <body>
         <div id="app">
@@ -59,9 +59,9 @@
                             </li>
                             @else
                             @if(Auth::user()->id && Auth::user()->role == 'admin')
-                               <a class="nav-link" href="#">Admin Business Plans</a>
+                            <a class="nav-link" href="#">Admin Business Plans</a>
                             @else
-                               <a class="nav-link" href="#">Business Plans</a>
+                            <a class="nav-link" href="#">Business Plans</a>
                             @endif
                             <a class="nav-link" href="{{ route('company.index',Auth::user()->id) }}">New Application</a>
                             <a class="nav-link" href="{{ action('HomeController@listaplications',Auth::user()->id) }}">{{ __('List Aplications') }}</a>
@@ -79,7 +79,7 @@
                                         {{ __('Logout') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ action('HomeController@configuration',Auth::user()->id) }}" >
-                                       Configuration
+                                        Configuration
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -96,7 +96,10 @@
             <main class="py-4">
                 @yield('content')
             </main>
+
         </div>
-        
+
     </body>
 </html>
+
+

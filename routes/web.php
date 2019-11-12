@@ -33,6 +33,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/config/{Id?}', 'HomeController@configuration')->name('home.config');
 Route::get('avatar/{file}', 'HomeController@getImageCompany')->name('business.avatar');
 Route::post('busines/update/{id}', 'HomeController@UpdateBusines')->name('business.update');
+Route::get('business/plan/{Id}', 'PlansController@InformationPlant')->name('information.plan');
+Route::get('business/filter/', 'EmpresasController@BusquedaEmpresa')->name('business.filter');
 
 Route::get('formw/{Id?}', 'ImprimirDocumentos@generalW4')->name('format.wfor');
 Route::get('formreg/{Id?}', 'ImprimirFormularioReg@formRegister')->name('format.reg');

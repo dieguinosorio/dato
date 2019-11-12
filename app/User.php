@@ -32,4 +32,8 @@ class User extends Authenticatable
     public function usuario(){
         return $this->hasMany('App\Empresas','id_company','id');
     }
+    
+    public function planesemp(){
+        return $this->hasOne('App\PlanesEmpresas','id_company','id');
+    }
 }
