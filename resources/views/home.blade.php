@@ -57,7 +57,7 @@
 
     <h2>Applications by Companies</h2>
     <hr>
-    <h2>Busqueda</h2>
+    <h2>Filter Company</h2>
     <form method="GET" action="{{action("HomeController@index")}}">
         <div class="form-group col-md-8">
             <input id="criteria" type="text" class="form-control" name="criteria" autofocus>
