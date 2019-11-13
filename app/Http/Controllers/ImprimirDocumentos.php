@@ -30,8 +30,8 @@ class ImprimirDocumentos extends Controller {
 
     public function Body($pdf) {
         // Cargamos los datos.
-        $imagen = Storage::disk('public')->url('0001.jpg');
-        $pdf->Image($imagen, 8, 1, 200);
+        $imagen = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix();
+        $pdf->Image($imagen."/0001.jpg", 8, 1, 200);
         //PRimer rectangulo primera fila
         $pdf->Rect(8, 190, 70, 10, '');
         $pdf->Rect(78, 190, 70, 10, '');
