@@ -36,7 +36,7 @@
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         <!--<img class="logo" src="{{action("HomeController@getImageCompany",'LOGO2.PNG')}}"/>-->
-                        APLICANT-PRO
+                        <p style="margin: 0px;">APLICANT-<span class="pro">PRO</span></p>
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>
