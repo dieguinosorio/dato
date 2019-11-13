@@ -33,7 +33,7 @@ class ImprimirFormatoi9 extends Controller {
     public static function Body($pdf) {
         // Cargamos los datos.
         $Row = self::$Datos;
-        $imagen = Storage::disk('public')->url('1i.jpg');
+        $imagen = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix()."/1i.jpg";  //Storage::disk('public')->url('1i.jpg');
         $pdf->Image($imagen, 5, 5, 210);
         $pdf->SetFont('Arial', '', 12);
         $pdf->Text(19, 75, strtoupper($Row->last_name));
@@ -89,10 +89,10 @@ class ImprimirFormatoi9 extends Controller {
         $imFirma = Storage::disk('firmas')->getDriver()->getAdapter()->getPathPrefix();
         $pdf->Image($imFirma."/".$Row->firma, 60, 180, 30);
         $pdf->AddPage();
-        $imagen2 = Storage::disk('public')->url('2i.jpg');
+        $imagen2 = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix()."/2i.jpg"; //Storage::disk('public')->url('2i.jpg');
         $pdf->Image($imagen2, 5, 5, 210);
         $pdf->AddPage();
-        $imagen3 = Storage::disk('public')->url('3i.jpg');
+        $imagen3 = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix()."/3i.jpg"; //Storage::disk('public')->url('3i.jpg');
         $pdf->Image($imagen3, 5, 5, 210);
     }
 
