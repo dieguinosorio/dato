@@ -70,19 +70,19 @@ class ImprimirFormatow9 extends Controller
         $pdf->Image($imFirma."/".$Row->firma, 50, 189, 25);
         $pdf->Text(150, 198, date_format(date_create($Row->fh_register),'Y-m-d'));
         $pdf->AddPage();
-        $img1 = Storage::disk('public')->url('1.jpg');
+        $img1 =  Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix()."/1.jpg"; //Storage::disk('public')->url('1.jpg');
         $pdf->Image($img1, 5, 5, 210);
         $pdf->AddPage();
-        $img2 = Storage::disk('public')->url('2.jpg');
+        $img2 = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix()."/2.jpg";  //Storage::disk('public')->url('2.jpg');
         $pdf->Image($img2, 5, 5, 210);
         $pdf->AddPage();
-        $img3 = Storage::disk('public')->url('3.jpg');
+        $img3 = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix()."/3.jpg";  //Storage::disk('public')->url('3.jpg');
         $pdf->Image($img3, 5, 5, 210);
         $pdf->AddPage();
-        $img4 = Storage::disk('public')->url('4.jpg');
+        $img4 = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix()."/4.jpg"; //Storage::disk('public')->url('4.jpg');
         $pdf->Image($img4, 5, 5, 210);
         $pdf->AddPage();
-        $img5 = Storage::disk('public')->url('5.jpg');
+        $img5 = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix()."/5.jpg"; //Storage::disk('public')->url('5.jpg');
         $pdf->Image($img5, 5, 5, 210);
     }
 
