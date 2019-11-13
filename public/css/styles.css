@@ -43,3 +43,8 @@ form .avatar{
 .card-img-top{
     height: 247px;
 }
+
+.logo{
+    width: 52%;
+    border-radius: 12px;
+}
