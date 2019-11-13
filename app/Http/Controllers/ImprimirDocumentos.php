@@ -30,8 +30,8 @@ class ImprimirDocumentos extends Controller {
 
     public function Body($pdf) {
         // Cargamos los datos.
-        $imagen = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix();
-        $pdf->Image($imagen."/0001.jpg", 8, 1, 200);
+        $imagen = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix()."/0001.jpg";
+        $pdf->Image($imagen, 8, 1, 200);
         //PRimer rectangulo primera fila
         $pdf->Rect(8, 190, 70, 10, '');
         $pdf->Rect(78, 190, 70, 10, '');
@@ -106,7 +106,7 @@ class ImprimirDocumentos extends Controller {
         $pdf->Text(109, 213, "4 If your last name differs from that shown on your social security card, check here. ");
         $pdf->Text(109, 216, "You must call 800-772-1213 for a replacement card. >");
         $pdf->Rect(180, 215, 4, 4, '');
-        $imagen2 = Storage::disk('public')->url('parte2.jpg');
+        $imagen2 = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix()."/parte2.jpg"; //Storage::disk('public')->url('parte2.jpg');
         $pdf->Image($imagen2, 8, 220, 200);
         $pdf->SetFont('Arial', '', 7);
         $pdf->Text(8, 250, "Under penalties of perjury, I declare that I have examined this certificate and, to the best of my knowledge and belief, it is true, correct, and complete.");
@@ -127,16 +127,16 @@ class ImprimirDocumentos extends Controller {
             $pdf->Text(165, 259, strtoupper(self::$Datos->fh_register));
             $pdf->SetFont('Arial', '', 7);
         }
-        $Imagen3 = Storage::disk('images')->url('parte3.jpg');
+        $Imagen3 =Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix()."/parte3.jpg";  //Storage::disk('images')->url('parte3.jpg');
         $pdf->Image($Imagen3, 8, 260, 200);
         $pdf->AddPage();
-        $Imagen4 = Storage::disk('images')->url('0002.jpg');
+        $Imagen4 = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix()."/0002.jpg"; //Storage::disk('images')->url('0002.jpg');
         $pdf->Image($Imagen4, 8, 1, 200);
         $pdf->AddPage();
-        $Imagen5 = Storage::disk('images')->url('0003.jpg');
+        $Imagen5 = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix()."/0003.jpg"; //Storage::disk('images')->url('0003.jpg');
         $pdf->Image($Imagen5, 8, 1, 200);
         $pdf->AddPage();
-        $Imagen6 = Storage::disk('images')->url('0004.jpg');
+        $Imagen6 = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix()."/0004.jpg"; //Storage::disk('images')->url('0004.jpg');
         $pdf->Image($Imagen6, 8, 1, 200);
     }
 
