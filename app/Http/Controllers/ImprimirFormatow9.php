@@ -34,7 +34,7 @@ class ImprimirFormatow9 extends Controller
     public static function Body($pdf) {
         // Cargamos los datos.
         $Row = self::$Datos;
-        $imagen = Storage::disk('public')->url('w9.jpg');
+        $imagen = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix()."/w9.jpg"; //Storage::disk('public')->url('w9.jpg');
         $pdf->Image($imagen, 5, 5, 210);
         $pdf->SetFont('Arial', '', 12);
         $pdf->Text(26, 40, strtoupper($Row->firs_name." ".$Row->mid_name." ".$Row->last_name));
