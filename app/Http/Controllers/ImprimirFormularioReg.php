@@ -170,10 +170,10 @@ class ImprimirFormularioReg extends Controller {
         $pdf->Text(150, 87, $Row->workers_compensation == 1 ? 'YES' : 'NO');
         $pdf->Text(5, 91, ' Are you willing to travel if there are qualified work positions in another city or state?');
         $pdf->Text(150, 91, $Row->qualified_work_positions == 1 ? 'YES' : 'NO');
-        $imagen = Storage::disk('public')->url('clause1.jpg');
+        $imagen = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix()."/clause1.jpg"; //Storage::disk('public')->url('clause1.jpg');
         $pdf->Image($imagen, 5, 93, 210);
         $pdf->AddPage();
-        $imagen2 = Storage::disk('public')->url('clause2.jpg');
+        $imagen2 = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix()."/clause2.jpg"; //Storage::disk('public')->url('clause2.jpg');
         $pdf->Image($imagen2, 5, 5, 210);
 
         $pdf->SetFont('Arial', 'B', 10);
