@@ -38,7 +38,7 @@ class HomeController extends Controller {
            $empresas = User::find(\Auth::user()->id);
         }
         else{
-           $empresas = User::orderby('id'); 
+           $empresas = User::all(); 
         }
         return view('home', array('empresas' => $empresas));
     }
