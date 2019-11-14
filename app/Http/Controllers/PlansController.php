@@ -21,4 +21,9 @@ class PlansController extends Controller
         $PlanEmpresa = Planes::find($Plan->IdPlan);
         return new response($PlanEmpresa);
     }
+    
+     public function index($id) {
+        $planes = Empresas::where('id', $id)->first();
+        return view('planespagos.plan', array("planes" => $planes));
+    }
 }
