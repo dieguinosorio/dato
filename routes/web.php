@@ -23,6 +23,8 @@ Route::get('/company/edit/{id}', 'AplicationController@loadAplication')->name('c
 Route::post('/update/{id}', 'EmpresasController@UpdateApp')->name('company.update');
 Route::get('/company/delete/{id}', 'EmpresasController@DeleteApp')->name('company.delete');
 
+Route::get('/planes/{id}', 'PlansController@index')->name('planes.index');
+
 Route::get('/image/{file}', 'HomeController@getImage')->name('image.getimg');
 Route::post('/signature/', 'HomeController@getImageSig')->name('image.signature');
 Route::get('/image/signature/{firma}', 'HomeController@getImage')->name('get.signature');
