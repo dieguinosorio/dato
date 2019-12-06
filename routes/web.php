@@ -23,7 +23,7 @@ Route::get('/company/edit/{id}', 'AplicationController@loadAplication')->name('c
 Route::post('/update/{id}', 'EmpresasController@UpdateApp')->name('company.update');
 Route::get('/company/delete/{id}', 'EmpresasController@DeleteApp')->name('company.delete');
 
-Route::get('/planes/{id}', 'PlansController@index')->name('planes.index');
+Route::get('/planes/', 'PlansController@index')->name('planes.index');
 
 Route::get('/image/{file}', 'HomeController@getImage')->name('image.getimg');
 Route::post('/signature/', 'HomeController@getImageSig')->name('image.signature');
@@ -57,15 +57,13 @@ Route::get('formi9/{Id?}', 'ImprimirFormatoi9@general')->name('format.i9');
 Route::get('/list/{Id?}', 'HomeController@listaplications')->name('aplication.list');
 Route::get('/company/prueba/', 'HomeController@prueba')->name('prueba');
 Route::post('company/validarform/', 'HomeController@ValidarFormulario')->name('validar.formulario');
+Route::get('/plant/new', 'PlansController@CreatePlanMonth')->name('plans.new');
 
-Route::group(array('domain' => '{subdomain}.dato.com'), function () {
+Route::group(array('domain' => '{subdomain}.localhost'), function () {
  
     Route::get('/', function ($subdomain) {
- 
         $name = DB::table('users')->where('name', $subdomain)->get();
- 
         dd($name);
- 
     });
 });
 

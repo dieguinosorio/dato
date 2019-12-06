@@ -25,8 +25,8 @@ class EmpresasController extends Controller {
 
     public function register(Request $request, $id) {
         $Compania = User::find($id);
-        $ValidApp = Empresas::where("social_security", $request->input("socialnum"))->first();
-        if ($ValidApp) {
+        $ValidApp = Empresas::where("social_security", $request->input("socialnum"))->get();
+        if (count($ValidApp)<=0) {
             $UserNew = new Empresas();
             $UserNew->id_company = $id;
             $UserNew->truework = $request->input("OpElgSi");

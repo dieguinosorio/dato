@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card-header"><div class="alert-success encabezado-target">Register of Employed for <strong>(( {{$empresa->name}} ))</strong></div>
+            <div class="alert-primary card-header">Register Aplication For <strong>{{strtoupper($empresa->name)}}</strong>
                 <div class="profile-avatar">
                     <img src="{{action("HomeController@getImageCompany",$empresa->image)}}"/>
                 </div>
