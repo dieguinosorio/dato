@@ -14,7 +14,8 @@
 //});
 
 window.addEventListener('load', function () {
-    $('#btnGuardar1').prop('disabled',true);
+
+    $('#btnGuardar1').prop('disabled', true);
     $.ajaxSetup({
         headers: {"X-CSRF-TOKEN": jQuery('meta[name = "csrf-token"]').attr("content")}
     });
@@ -119,7 +120,7 @@ window.addEventListener('load', function () {
 //                image_path :image_path,
 //                image_path2 :image_path2,
                 acept: acept,
-                firm:firm,
+                firm: firm,
             },
             success: function (response) {
                 console.log(response.message);
@@ -131,14 +132,14 @@ window.addEventListener('load', function () {
                     $("#mensaje-succes").fadeIn();
                     $("#lblmensajesucces").html(response.message);
                     $("#OpElgSi").focus();
-                    $('#btnGuardar1').prop('disabled',false);
-                     $("#acepted").focus();
+                    $('#btnGuardar1').prop('disabled', false);
+                    $("#acepted").focus();
                 } else {
                     $("#mensaje-error").fadeIn();
                     $("#lblmensajeerror").html(response.message);
                     $("#OpElgSi").focus();
-                    $('#btnGuardar1').prop('disabled',true);
-                    $("#acepted").prop('checked',false);
+                    $('#btnGuardar1').prop('disabled', true);
+                    $("#acepted").prop('checked', false);
                 }
             }
             ,
@@ -149,5 +150,19 @@ window.addEventListener('load', function () {
         })
     });
 
+    /*$("#btn-copy-link").unbind('click').click(function () {
+     alert("Copiado");
+     });*/
+
 });
+
+function CopyLink(id) {
+    var aux = document.createElement("input");
+    aux.setAttribute("value", document.getElementById('link'+id).value);
+    document.body.appendChild(aux);
+    aux.select();
+    document.execCommand("copy");
+    document.body.removeChild(aux);
+    alert("Copied link");
+}
 
