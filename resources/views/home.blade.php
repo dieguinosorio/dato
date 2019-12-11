@@ -82,6 +82,10 @@
                     </a>
                     <div class="card-footer">
                         <a href="#">{{$empresa->email}}</a>
+                        <div class="link">
+                            <input style="width: 100%;" class="form-control" id="link{{$empresa->id}}" type="text" value="{{'http://aplicant.dato.pro/dato/public/company/'.$empresa->id}}" disabled="false"/>
+                            <input style="float: right;" type="button" class="btn btn-sm btn-primary" id="btn-copy-link" value ="Copy Link" onclick="CopyLink('{{$empresa->id}}')"/>
+                        </div>
                     </div>
 
                 </div>
