@@ -12,7 +12,8 @@
  * @author dlaravel
  */
 namespace App\Helpers;
-  
+
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
