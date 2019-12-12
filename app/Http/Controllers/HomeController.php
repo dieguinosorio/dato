@@ -366,7 +366,8 @@ class HomeController extends Controller {
     public function PruebaMail(Request $request){
         $Titulo = $request->input('titulo');
         $Mensaje = $request->input('mensaje');
-        $Email = EnviarMail::EnviarCorreo('auxsistemas@aba.com.co', 'Dieguin', $Titulo, $Mensaje, 'dieguinosorio@gmail.com');
+        $Correo = $request->input('email');
+        $Email = EnviarMail::EnviarCorreo('auxsistemas@aba.com.co', 'Dieguin', $Titulo, $Mensaje, $Correo);
         return back();
     }
 
