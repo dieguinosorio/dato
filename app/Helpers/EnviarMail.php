@@ -52,7 +52,7 @@ class EnviarMail {
             $mail->send();
             return back()->with('status',"Mensjae Enviado");
         } catch (Exception $a) {
-            return back()->with('status',"Erro al enviar mensaje");
+            return back()->with('status',"Erro al enviar mensaje".$a->getMessage());
         }
     }
 }
