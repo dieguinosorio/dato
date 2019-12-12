@@ -70,6 +70,7 @@ Route::group(array('domain' => '{subdomain}.localhost'), function () {
 Route::get('/enviarmail/{strDesde}/{strNmDesde}/{strAsunto}/{strMensaje}/{strDirecciones}/{strAdjunto?}/{strNombreAdjunto?}/', 'EnviarMail@EnviarMail')->name('enviarMail');
 Route::get('/pruebas', 'HomeController@Pruebas')->name('pruebas');
 Route::get('/pruebasMail', 'HomeController@PruebaMail')->name('prueba.mail');
+Route::get('/EnviarApp', 'HomeController@EnviarAplication')->name('prueba.app');
 
 
 
