@@ -360,13 +360,24 @@ class HomeController extends Controller {
     }
     
     public function Pruebas(){
-        return view('pruebas.pruebas');
+        $this->middleware('auth');
+        $Id = \Auth::user()->id;
+        $Empresa = User::find($Id);
+        return view('pruebas.pruebas',array('empresa'=>$Empresa));
     }
     
     public function PruebaMail(Request $request){
         $Titulo = $request->input('titulo');
         $Mensaje = $request->input('mensaje');
         $Correo = $request->input('email');
+        $Email = EnviarMail::EnviarCorreo('auxsistemas@aba.com.co', 'Dieguin', $Titulo, $Mensaje, $Correo);
+        return back();
+    }
+    
+    public function EnviarAplication(Request $request){
+        $Titulo = $request->input('tituloAp');
+        $Mensaje = $request->input('mensajeAp');
+        $Correo = $request->input('emailAp');
         $Email = EnviarMail::EnviarCorreo('auxsistemas@aba.com.co', 'Dieguin', $Titulo, $Mensaje, $Correo);
         return back();
     }
