@@ -60,6 +60,7 @@
                             </li>
                             @else
                             @if(Auth::user()->id && Auth::user()->role == 'admin')
+                            <a class="nav-link" href="{{ route('pruebas') }}">Utilies</a>
                             <a class="nav-link" href="{{ route('planes.index',Auth::user()->id) }}">Admin Business Plans</a>
                             @else
                             <a class="nav-link" href="#">Business Plans</a>
