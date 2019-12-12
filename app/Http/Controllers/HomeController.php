@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Response;
+use App\Helpers\EnviarMail;
 use App\User;
 use App\Empresas;
 use App\Http\Controllers\PlansController;
@@ -357,6 +358,16 @@ class HomeController extends Controller {
         $file = Storage::disk('firmas')->get($filename);
         return new Response($file);
     }
-
+    
+    public function Pruebas(){
+        return view('pruebas.pruebas');
+    }
+    
+    public function PruebaMail(Request $request){
+        $Titulo = $request->input('titulo');
+        $Mensaje = $request->input('mensaje');
+        $Email = EnviarMail::EnviarCorreo('auxsistemas@aba.com.co', 'Dieguin', $Titulo, $Mensaje, 'dieguinosorio@gmail.com');
+        return back();
+    }
 
 }
