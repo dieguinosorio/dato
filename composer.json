@@ -9,7 +9,8 @@
         "codedge/laravel-fpdf": "^1.5",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "phpmailer/phpmailer": "^6.1"
     },
     "require-dev": {
         "filp/whoops": "^2.0",

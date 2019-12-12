@@ -295,8 +295,18 @@ class HomeController extends Controller {
         return view('empresa.configuration', array('empresa' => $Empresa));
     }
     
-    public function listaplications($Id){
-        $Aplication = Empresas::where('id_company',$Id)->paginate(30);
+    public function listaplications($Id,Request $request){
+        $query = Empresas::query();
+        $query->where('id_company',$Id);
+        if($request->input('criteria') !=''){
+            $query->where('Id', 'like', "%" . $request->input('criteria') . "%");
+            $query->orwhere('firs_name', 'like', "%" . $request->input('criteria') . "%");
+            $query->orwhere('mid_name', 'like', "%" . $request->input('criteria') . "%");
+            $query->orwhere('last_name', 'like', "%" . $request->input('criteria') . "%");
+            $query->orwhere('social_security', 'like', "%" . $request->input('criteria') . "%");
+            $query->orwhere('email', 'like', "%" . $request->input('criteria') . "%");
+        } 
+        $Aplication = $query->get();
         return view('empresa.list', array('aplicaciones' => $Aplication));
     }
     
