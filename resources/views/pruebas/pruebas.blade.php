@@ -41,7 +41,7 @@
                     </div>
                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Menssage') }}</label>
                     <div class="col-md-6">
-                        <textarea class="form-control"  name="mensajeAp">Hello, this message has been sent by the company Allpro so that you can manage it so you can manage your candidacy.<br>Form: http://aplicant.dato.pro/dato/public/company/{{$empresa->id}}<br><br><br>This message is sent automatically, please do not reply.</textarea><br>
+                        <textarea class="form-control"  name="mensajeAp">Hello, this message has been sent by the company {{strtoupper($empresa->name)}} so that you can manage it so you can manage your candidacy.<br>Form: http://aplicant.dato.pro/dato/public/company/{{$empresa->id}}<br><br><br>This message is sent automatically, please do not reply.</textarea><br>
                     </div>
                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Email') }}</label>
                     <div class="col-md-6">
