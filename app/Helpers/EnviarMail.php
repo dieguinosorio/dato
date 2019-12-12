@@ -32,7 +32,7 @@ class EnviarMail {
             $mail->SMTPSecure = 'ssl'/*PHPMailer::ENCRYPTION_STARTTLS*/;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
             $mail->Port = 465;                                    // TCP port to connect to
             //Recipients
-            $mail->setFrom($strDesde, $strNmDesde);
+            $mail->setFrom('aplicant.dato@gmail.com', 'Aplicant Pro');
             //$mail->addAddress('auxsistemas@aba.com.co', 'Joe User');     // Add a recipient
             $mail->addAddress($strDirecciones);               // Name is optional
 //            $mail->addReplyTo('info@example.com', 'Information');
