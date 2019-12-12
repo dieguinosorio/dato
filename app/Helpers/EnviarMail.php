@@ -22,7 +22,7 @@ class EnviarMail {
     public static function EnviarCorreo($strDesde, $strNmDesde, $strAsunto, $strMensaje, $strDirecciones, $strAdjunto = "", $strNombreAdjunto = "") {
         try {
             $mail = new PHPMailer(true);
-            $mail->SMTPDebug = false /*SMTP::DEBUG_SERVER*/;                      // Enable verbose debug output
+            $mail->SMTPDebug = 2 /*SMTP::DEBUG_SERVER*/;                      // Enable verbose debug output
             $mail->isSMTP();                                            // Send using SMTP
             $mail->Host = 'smtp.googlemail.com';                    // Set the SMTP server to send through
             $mail->SMTPAuth = true;                                   // Enable SMTP authentication
