@@ -11,6 +11,7 @@ use App\User;
 use App\OpResident;
 use App\States;
 use App\Areas;
+use App\Helpers\EnviarMail;
 
 class EmpresasController extends Controller {
 
@@ -89,6 +90,12 @@ class EmpresasController extends Controller {
             $UserNew->Acepto = $request->input("acept");
             $UserNew->fh_register = date("Y-m-d H:i:s");
             $UserNew->save();
+            $Mensaje ="Thank you very much for registering with our company ".strtoupper($Compania->name).", your registration <strong>ID :".$UserNew->Id."</strong><br>
+                       <strong>First name:".$UserNew->firs_name."</strong><br><br>"
+                    . "Please note this ID is essential to make any request with the system administrator<br><br>"
+                    . "This message is sent automatically, please do not reply, if you have any questions or concerns please contact the system administrator";
+            
+            $Email = EnviarMail::EnviarCorreo('auxsistemas@aba.com.co', 'Dato Pro -'.strtoupper($Compania->name), 'Register Form Aplication for '.strtoupper($Compania->name), $Mensaje, $request->input("email"));
             return redirect("/")->with("status", "Congratulations " . $UserNew->firs_name . " have applied form company ((" . $Compania->name . ")), you data ID Number " . $UserNew->Id);
         } else {
             return redirect("/")->with("status", "We already registered you with the #ID: " . $ValidApp->Id . " and name " . $ValidApp->firs_name);
