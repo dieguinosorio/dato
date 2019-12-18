@@ -71,6 +71,12 @@ Route::get('/enviarmail/{strDesde}/{strNmDesde}/{strAsunto}/{strMensaje}/{strDir
 Route::get('/pruebas', 'HomeController@Pruebas')->name('pruebas');
 Route::get('/pruebasMail', 'HomeController@PruebaMail')->name('prueba.mail');
 Route::get('/EnviarApp', 'HomeController@EnviarAplication')->name('prueba.app');
+Route::get('/payment', 'HomeController@paymentindex')->name('payment.index');
+
+//Rutas pagos
+Route::post('/payments/pay', 'PaymentController@pay')->name('pay');
+Route::get('/payments/approval', 'PaymentController@approval')->name('approval');
+Route::get('/payments/cancelled', 'PaymentController@cancelled')->name('cancelled');
 
 
 
