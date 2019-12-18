@@ -2,6 +2,7 @@
 @section('title', 'Home')
 @section('content')
 <div class="container">
+    @include('includes.mensajeexito')
     <div class="row justify-content-center">
         <div class="col-md-8">
             @if (session('status'))

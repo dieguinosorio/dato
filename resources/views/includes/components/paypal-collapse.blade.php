@@ -1,0 +1,1 @@
+<small>You bill we redirect to the Paypal checkout page...</small>
