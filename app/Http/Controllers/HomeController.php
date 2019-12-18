@@ -9,6 +9,8 @@ use Illuminate\Http\Response;
 use App\Helpers\EnviarMail;
 use App\User;
 use App\Empresas;
+use App\Concurrencies;
+use App\PaymentPlatforms;
 use App\Http\Controllers\PlansController;
 
 class HomeController extends Controller {
@@ -380,6 +382,15 @@ class HomeController extends Controller {
         $Correo = $request->input('emailAp');
         $Email = EnviarMail::EnviarCorreo('auxsistemas@aba.com.co', 'Dieguin', $Titulo, $Mensaje, $Correo);
         return back();
+    }
+    
+    public function paymentindex(Request $request){
+        $this->middleware('auth');
+        $Id = \Auth::user()->id;
+        $Empresa = User::find($Id);
+        $Currencies = Concurrencies::all();
+        $PaymentForms = PaymentPlatforms::all();
+        return view('pagos.pagos',array('empresa'=>$Empresa,'monedas'=>$Currencies,"payments"=>$PaymentForms));
     }
 
 }
