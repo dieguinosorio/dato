@@ -51,9 +51,9 @@ class EnviarMail {
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
             $mail->setLanguage('es');
             $mail->send();
-            return back()->with('status',"Mensjae Enviado");
+            return back()->with('status',"Send Email");
         } catch (Exception $a) {
-            return back()->with('status',"Erro al enviar mensaje".$a);
+            return back()->with('status',"Error Send Email".$a);
         }
     }
 }

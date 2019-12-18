@@ -86,7 +86,7 @@ class PayPalService {
      */
     public function createOrder($value, $currency) {
         return $this->makeRequest(
-                        'POST', '/v2/checkout/orders', [], [
+                    'POST', '/v2/checkout/orders', [], [
                     'intent' => 'CAPTURE',
                     'purchase_units' => [
                         0 => [
