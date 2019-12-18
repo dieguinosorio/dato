@@ -18,6 +18,13 @@ return [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
     ],
+    //Estas mismas variables se deben configurar en .env
+    'paypal'=>[
+        'base_uri'=> env('PAYPAL_BASE_URI'),
+        'client_id'=> env('PAYPAL_CLIENT_ID'),
+        'client_secret'=> env('PAYPAL_CLIENT_SECRET'),
+        'class'=>  App\Services\PayPalService::class,
+    ],
 
     'ses' => [
         'key' => env('SES_KEY'),
