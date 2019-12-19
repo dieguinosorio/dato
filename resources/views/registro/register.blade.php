@@ -12,6 +12,7 @@
             <div class="card-body">
                 @include('includes.mensaje1')
                 @include('includes.mensaje2')
+                @include('includes.register')
             </div>
         </div>
     </div>
