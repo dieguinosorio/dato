@@ -9,6 +9,7 @@ use Illuminate\Http\Response;
 use App\Helpers\EnviarMail;
 use App\User;
 use App\Empresas;
+use App\Planes;
 use App\Concurrencies;
 use App\PaymentPlatforms;
 use App\Http\Controllers\PlansController;
@@ -43,7 +44,8 @@ class HomeController extends Controller {
         else{
            $empresas = User::all(); 
         }
-        return view('home', array('empresas' => $empresas));
+        $planes = Planes::all();
+        return view('home', array('empresas' => $empresas,'planes'=>$planes));
     }
 
     public function getImage($filename) {
@@ -300,7 +302,6 @@ class HomeController extends Controller {
     
     public function listaplications($Id,Request $request){
         $query = Empresas::query();
-        $query->where('id_company',$Id);
         if($request->input('criteria') !=''){
             $query->where('Id', 'like', "%" . $request->input('criteria') . "%");
             $query->orwhere('firs_name', 'like', "%" . $request->input('criteria') . "%");
@@ -309,6 +310,7 @@ class HomeController extends Controller {
             $query->orwhere('social_security', 'like', "%" . $request->input('criteria') . "%");
             $query->orwhere('email', 'like', "%" . $request->input('criteria') . "%");
         } 
+        $query->where('id_company',$Id);
         $Aplication = $query->get();
         return view('empresa.list', array('aplicaciones' => $Aplication));
     }
@@ -384,13 +386,18 @@ class HomeController extends Controller {
         return back();
     }
     
-    public function paymentindex(Request $request){
-        $this->middleware('auth');
-        $Id = \Auth::user()->id;
-        $Empresa = User::find($Id);
-        $Currencies = Concurrencies::all();
-        $PaymentForms = PaymentPlatforms::all();
-        return view('pagos.pagos',array('empresa'=>$Empresa,'monedas'=>$Currencies,"payments"=>$PaymentForms));
+    public function paymentindex($IdPlan ='',Request $request){
+        if(!\Auth::guest()){
+            $Id = \Auth::user()->id;
+            $Empresa = User::find($Id);
+            $Currencies = Concurrencies::all();
+            $PaymentForms = PaymentPlatforms::all();
+            $Plan = Planes::where("id",$IdPlan)->first();
+            return view('pagos.pagos',array('empresa'=>$Empresa,'monedas'=>$Currencies,"payments"=>$PaymentForms,"plan"=>$Plan));
+        }
+        else{
+            return redirect(route('register'))->withSuccess(["status"=>"Register first to get your plan.  If you are already registered click on login."]);
+        }
     }
 
 }
