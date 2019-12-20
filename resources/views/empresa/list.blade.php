@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
     <h2>Filter Aplicant</h2>
-        <form method="GET" action="{{action("HomeController@listaplications",['Id'=>'14'])}}">
+        <form method="GET" action="{{action("HomeController@listaplications",['Id'=>Auth::user()->id])}}">
             <div class="form-group col-md-8">
                 <input id="criteria" type="text" class="form-control" name="criteria" autofocus>
             </div>
