@@ -45,6 +45,7 @@ class HomeController extends Controller {
            $empresas = User::all(); 
         }
         $planes = Planes::all();
+        session()->put("empresas",$empresas->planesemp);
         return view('home', array('empresas' => $empresas,'planes'=>$planes));
     }
 
