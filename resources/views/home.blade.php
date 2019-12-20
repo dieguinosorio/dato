@@ -59,7 +59,7 @@
     @endif
     <br>
     <div class="row">
-        @if($planes && !$empresas->planesemp)
+        @if($planes && !isset($empresas->planesemp)) 
             @foreach($planes as $planes)
             <div class="col-lg-4 mb-4">
                 <div class="card h-100 text-center">
