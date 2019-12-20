@@ -37,6 +37,7 @@ Route::get('avatar/{file}', 'HomeController@getImageCompany')->name('business.av
 Route::post('busines/update/{id}', 'HomeController@UpdateBusines')->name('business.update');
 Route::get('business/plan/{Id}', 'PlansController@InformationPlant')->name('information.plan');
 Route::get('business/filter/', 'EmpresasController@BusquedaEmpresa')->name('business.filter');
+Route::get('business/list/', 'EmpresasController@BusquedaEmpresa')->name('business.list');
 
 Route::get('formw/{Id?}', 'ImprimirDocumentos@generalW4')->name('format.wfor');
 Route::get('formreg/{Id?}', 'ImprimirFormularioReg@formRegister')->name('format.reg');
@@ -71,7 +72,7 @@ Route::get('/enviarmail/{strDesde}/{strNmDesde}/{strAsunto}/{strMensaje}/{strDir
 Route::get('/pruebas', 'HomeController@Pruebas')->name('pruebas');
 Route::get('/pruebasMail', 'HomeController@PruebaMail')->name('prueba.mail');
 Route::get('/EnviarApp', 'HomeController@EnviarAplication')->name('prueba.app');
-Route::get('/payment', 'HomeController@paymentindex')->name('payment.index');
+Route::get('/payment/{id?}', 'HomeController@paymentindex')->name('payment.index');
 
 //Rutas pagos
 Route::post('/payments/pay', 'PaymentController@pay')->name('pay');
