@@ -63,14 +63,17 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                             @else
+                            
                             @if(Auth::user()->id && Auth::user()->role == 'admin')
-                            <a class="nav-link" href="{{ route('pruebas') }}">Utilies</a>
                             <a class="nav-link" href="{{ route('planes.index',Auth::user()->id) }}">Admin Business Plans</a>
                             @else
                             <a class="nav-link" href="#">Business Plans</a>
                             @endif
-                            <a class="nav-link" href="{{ route('company.index',Auth::user()->id) }}">New Application</a>
                             <a class="nav-link" href="{{ action('HomeController@listaplications',Auth::user()->id) }}">{{ __('List Aplications') }}</a>
+                            @if(session("empresas")!= null)
+                               <a class="nav-link" href="{{ route('company.index',Auth::user()->id) }}">New Application</a>
+                               <a class="nav-link" href="{{ route('pruebas') }}">Utilies</a>
+                            @endif
                             <li>
                                 @include('includes.avatar')
                             </li>
