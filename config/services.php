@@ -25,7 +25,7 @@ return [
         'client_secret'=> env('PAYPAL_CLIENT_SECRET'),
         'class'=>  App\Services\PayPalService::class,
     ],
-
+    
     'ses' => [
         'key' => env('SES_KEY'),
         'secret' => env('SES_SECRET'),
@@ -36,10 +36,12 @@ return [
         'secret' => env('SPARKPOST_SECRET'),
     ],
 
-    'stripe' => [
-        'model' => App\User::class,
-        'key' => env('STRIPE_KEY'),
-        'secret' => env('STRIPE_SECRET'),
+    //Estas mismas variables se deben configurar en .env
+    'stripe'=>[
+        'base_uri'=> env('STRIPE_BASE_URI'),
+        'key'=> env('STRIPE_KEY'),
+        'secret'=> env('STRIPE_SECRET'),
+        'class' => App\Services\StripeService::class,
     ],
 
 ];
