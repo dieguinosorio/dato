@@ -28,7 +28,8 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script src="{{ asset('js/sig/signature_pad.umd.js') }}" defer></script>
         <script src="{{ asset('js/sig/app.js') }}" defer></script>
-
+        <script src="https://js.stripe.com/v3/"></script>
+        @stack('styles')
     </head>
     <body>
         <div id="app">
@@ -52,6 +53,9 @@
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
                             @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('business.list') }}">{{ __('List Companies') }}</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -99,9 +103,8 @@
             <main class="py-4">
                 @yield('content')
             </main>
-
         </div>
-
+        @stack('scripts')
     </body>
 </html>
 
