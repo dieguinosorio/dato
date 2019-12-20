@@ -40,12 +40,12 @@ class HomeController extends Controller {
         }
         else if(isset(\Auth::user()->id)){
            $empresas = User::find(\Auth::user()->id);
+           session()->put("empresas",$empresas->planesemp);
         }
         else{
            $empresas = User::all(); 
         }
         $planes = Planes::all();
-        session()->put("empresas",$empresas->planesemp);
         return view('home', array('empresas' => $empresas,'planes'=>$planes));
     }
 
