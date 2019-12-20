@@ -183,12 +183,14 @@ class EmpresasController extends Controller {
             $empresas = User::where('name', 'like', "%" . $request->input('criteria') . "%")
                     ->orwhere('Identificacion', 'like', "%" . $request->input('criteria') . "%")
                     ->orwhere('email', 'like', "%" . $request->input('criteria') . "%")
-                    ->paginate(1);
+                    ->paginate(2);
+        }
+        else if(isset(\Auth::user()->id)){
+           $empresas = User::find(\Auth::user()->id);
         }
         else{
-            $empresas = User::orderBy('id')->paginate(1); 
+           $empresas = User::all(); 
         }
-        return  view('home', array('empresas' => $empresas));
+        return  view('empresa.list_bussiness', array('empresas' => $empresas));
     }
-
 }
