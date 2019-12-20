@@ -69,7 +69,6 @@
                             @else
                             <a class="nav-link" href="#">Business Plans</a>
                             @endif
-                            <a class="nav-link" href="{{ route('payment.index') }}">Payment</a>
                             <a class="nav-link" href="{{ route('company.index',Auth::user()->id) }}">New Application</a>
                             <a class="nav-link" href="{{ action('HomeController@listaplications',Auth::user()->id) }}">{{ __('List Aplications') }}</a>
                             <li>
