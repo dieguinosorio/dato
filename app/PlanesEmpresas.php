@@ -12,6 +12,6 @@ class PlanesEmpresas extends Model
     protected $table="planes_empresas";
     
     public function plan(){
-        return $this->hasOne('App\Planes','id','id');
+        return $this->hasOne('App\Planes','id','IdPlan');
     }
 }
