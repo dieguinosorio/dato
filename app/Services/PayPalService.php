@@ -16,11 +16,13 @@ namespace App\Services;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Traits\ConsumesExternalServices;
+use App\Traits\FuncionesService;
 
 class PayPalService {
 
     use ConsumesExternalServices;
-
+    use FuncionesService;
+    
     protected $baseUri;
     protected $clientId;
     protected $clientSecret;
@@ -72,11 +74,11 @@ class PayPalService {
             $payment = $payment->purchase_units[0]->payments->captures[0]->amount;
             $amount = $payment->value;
             $currency = $payment->currency_code;
-
-            return redirect()->route('payment.index')->withSuccess(['status' => "Thanks, {$name}. We received your {$amount}{$currency} payment."]);
+            $this->AplicarPlanEmpresa(1);
+            return redirect()->route('home')->withSuccess(['status' => "Thanks, {$name}. We received your {$amount}{$currency} payment."]);
         }
 
-        return redirect()->route('payment.index')->withErrors('We cannot capture your payment. Try again, please');
+        return redirect()->route('home')->withErrors('We cannot capture your payment. Try again, please');
     }
 
     /**
